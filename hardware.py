@@ -8,7 +8,7 @@ from os import statvfs # type: ignore
 from sys import modules as sysModules
 
 SND_START = [(880, 100), (0, 50), (880, 100), (1174, 200)]
-
+SND_DIE  = [(400, 100), (200, 200)]
 
 async def _play_async(melody):
     try:
@@ -81,6 +81,7 @@ async def run_game(game_name):
 
     except Exception as e:
         display.fill(0)
+        print(f"Game error:\n{e}")
         font_default.write("Game error:", 0, 0)
         font_default.write(str(e)[:15], 0, 10)
         font_default.write(str(e)[16:30], 0, 18)
