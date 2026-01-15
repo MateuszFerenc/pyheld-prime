@@ -3,9 +3,11 @@ import uasyncio as asyncio
 from machine import Pin, SPI, I2C, PWM, ADC, freq
 from ezFBfont import ezFBfont as font
 import ezFBfont_4x6_ascii_06 
+# import ezFBfont_6x12_ascii_10
 from gc import collect as gcCollect, mem_free as gcMem_free, mem_alloc as gcMem_alloc # type: ignore
 from os import statvfs # type: ignore
 from sys import modules as sysModules
+import framebuf
 
 SND_START = [(880, 100), (0, 50), (880, 100), (1174, 200)]
 SND_DIE  = [(400, 100), (200, 200)]
@@ -62,7 +64,7 @@ def get_system_info():
 def show_system_info():
     info = get_system_info()
     display.fill(0)
-    font_default.write("SYS INFO", 10, 0)
+    font_default.text_centered("-- SYS INFO --", 0)
     font_default.write(f"CPU: {info['cpu']}MHz", 0, 10)
     font_default.write(f"RAM: {info['ram']}\\{info['all_ram']}kB", 0, 18)
     font_default.write(f"MEM: {info['flash']}\\{info['all_flash']}kB", 0, 26)
@@ -91,6 +93,40 @@ async def run_game(game_name):
     finally:
         gcCollect()
 
+def show_pbm(filename: str, x: int = 0, y: int = 0):
+    gcCollect()
+    try:
+        with open(filename, 'rb') as f:
+            type = f.readline()
+            if type != b'P4\n':
+                line = f.readline()
+                while line.startswith(b'#'):
+                    line = f.readline()
+                dims = line.split()
+            else:
+                dims = f.readline().split()
+            
+            width = int(dims[0])
+            height = int(dims[1])
+            
+            data = f.read()
+            
+            fb = framebuf.FrameBuffer(bytearray(data), width, height, framebuf.MONO_HLSB)
+            display.blit(fb, x, y)
+            display.show()
+            del fb
+            gcCollect()
+    except Exception as e:
+        print("Błąd wczytywania PBM:", e)
+
+
+class FontOverride(font):
+    def text_centered(self, text, y, color=1, screen_width=84):
+        size_x, _ = self.size(text)
+        x = (screen_width // 2) - (size_x // 2)
+        x = max(0, x)
+        self.write(text, x, y, color)
+        
 
 class ButtonEvents:
     def __init__(self, i2c, address):
@@ -131,6 +167,13 @@ class ButtonEvents:
             return True
         return False
     
+    def reset_state(self):
+        self.pressed_mask = 0x00
+        try:
+            self.last_state = self.i2c.readfrom(self.address, 1)[0]
+        except:
+            pass
+    
 BTN_UP = 1 << 7
 BTN_DOWN = 1 << 6
 BTN_LEFT = 1 << 5
@@ -146,9 +189,10 @@ cs = Pin(0)
 dc = Pin(2)
 
 display = pcd8544_fb.PCD8544_FB(spi, cs, dc)  
-display.contrast(55)
+display.contrast(50)
 
-font_default = font(display, ezFBfont_4x6_ascii_06)
+font_default = FontOverride(display, ezFBfont_4x6_ascii_06)
+# font_big = font(display, ezFBfont_6x12_ascii_10)
 
 pcf_addr = 0x20
 

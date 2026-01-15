@@ -10,9 +10,11 @@ async def main_menu():
 
     hw.play_sound(power_up_snd)
 
-    await asyncio.sleep(3)
+    await asyncio.sleep(2)
 
     asyncio.create_task(hw.buttons.scan_task())
+    hw.show_pbm("logo.pbm")
+    await asyncio.sleep(2)
 
     games = (("Flappy Bird", "flappy"), ("Pacman", "pacman"), ("Snake", "snake"))
     selected = 0 
@@ -25,7 +27,10 @@ async def main_menu():
         hw.display.show()
         
         if hw.buttons.was_pressed(hw.BTN_C): # Przycisk START
+           hw.buttons.reset_state()
            await hw.run_game(games[selected][1])
+           hw.buttons.reset_state()
+           hw.buttons.clear_callbacks()
 
         if hw.buttons.was_pressed(hw.BTN_UP): # Przycisk Up
             selected = (selected - 1) % len(games) 

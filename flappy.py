@@ -1,91 +1,126 @@
 import uasyncio as asyncio
 import hardware as hw
 import random
+from framebuf import FrameBuffer, MONO_HLSB
 
 isGameRunning = False
+isGameOver = False
 score = 0
+bird_vel = 0.0
 
-def exit_game():
-    global isGameRunning
-    isGameRunning = False
+bird_data = bytearray([
+    0x0C, 0x12, 0xC5, 0x22, 0x54, 0x44, 0x38, 0x28
+])
+bird_fbuf = FrameBuffer(bird_data, 8, 8, MONO_HLSB)
+
+def random_int(min_val, max_val):
+    span = max_val - min_val + 1
+    return min_val + (random.getrandbits(10) % span)
+
+def exit_to_menu():
+    global isGameRunning, isGameOver
+    isGameRunning = True
+    isGameOver = True
+
+def restart_game():
+    global isGameOver
+    isGameOver = False
 
 def jump():
     global bird_vel
-    bird_vel = -3.5
-    hw.play_sound([(600, 30), (800, 30)])
-
-def randint(min, max):
-    return random.getrandbits(10) % (max - min + 1) + min
+    if isGameRunning:
+        bird_vel = -3.2
+        hw.play_sound([(600, 30), (800, 30)])
 
 async def start():
-    global isGameRunning, score, bird_vel
-    isGameRunning = True
-    score = 0
+    global isGameRunning, isGameOver, score, bird_vel
     
-    bird_y = 20.0
-    bird_vel = 0.0
-    gravity = 0.5
-    
-    pipes = []
-    pipe_speed = 2
-    pipe_width = 8
-    gap_height = 16
-    
-    def spawn_pipe():
-        pipes.append([84, randint(10, 30)])
+    hw.buttons.on_press(hw.BTN_A, exit_to_menu)
 
-    spawn_pipe()
+    hw.display.fill(0)
+    hw.font_default.text_centered("MonkeSoft presents:", 0)
+    hw.font_default.text_centered("Flappy bird", 10)
+    hw.display.show()
 
-    hw.buttons.on_press(hw.BTN_A, exit_game) # Wyjście
-    hw.buttons.on_press(hw.BTN_UP, jump)     # Skok
+    await asyncio.sleep(2)
+
+    hw.display.fill(0)
     
-    hw.play_sound(hw.SND_START, interrupt=True)
-    
-    while isGameRunning:
-        bird_vel += gravity
-        bird_y += bird_vel
+    master_loop = True
+    while master_loop:
+        isGameRunning = True
+        isGameOver = False
+        score = 0
+        bird_y = 20.0
+        bird_vel = 0.0
+        gravity = 0.45
+        pipes = [[84, 24]] 
+        pipe_speed = 2
+        bird_size = 6 # łatwiej niż 8px
         
-        for p in pipes:
-            p[0] -= pipe_speed
-            
-        if pipes[0][0] < -pipe_width:
-            pipes.pop(0)
-            score += 1
-            hw.play_sound([(1200, 20)])
-            
-        if pipes[-1][0] < 50:
-            spawn_pipe()
+        hw.buttons.on_press(hw.BTN_UP, jump)
 
-        if bird_y > 44 or bird_y < 0:
-            isGameRunning = False
-            
-        bird_rect = (10, int(bird_y), 4, 4) # x, y, w, h
-        for p in pipes:
-            if 10 < p[0] + pipe_width and 10 + 4 > p[0]:
-                if bird_y < p[1] - (gap_height // 2) or bird_y + 4 > p[1] + (gap_height // 2):
-                    isGameRunning = False
+        hw.play_sound(hw.SND_START, interrupt=True)
 
-        hw.display.fill(0)
-
-        hw.display.rect(10, int(bird_y), 4, 4, 1)
-        
-        for p in pipes:
-            upper_h = p[1] - (gap_height // 2)
-            lower_y = p[1] + (gap_height // 2)
-            hw.display.rect(p[0], 0, pipe_width, upper_h, 1)
-            hw.display.rect(p[0], lower_y, pipe_width, 48 - lower_y, 1)
+        while isGameRunning:
+            bird_vel += gravity
+            bird_y += bird_vel
             
-        hw.font_default.write(f"Score: {score}", 70, 0)
-        
-        hw.display.show()
-        
-        await asyncio.sleep_ms(30) # type: ignore
-    
-    # --- Koniec gry ---
-    hw.play_sound(hw.SND_DIE, interrupt=True)
+            for p in pipes:
+                p[0] -= pipe_speed
+            
+            if pipes[0][0] < -8:
+                pipes.pop(0)
+                score += 1
+                hw.play_sound([(1500, 30)])
+            
+            if pipes[-1][0] < 50:
+                pipes.append([84, random_int(12, 36)])
+
+            if bird_y > 44 or bird_y < 0:
+                isGameRunning = False
+            
+            for p in pipes:
+                if 10 < p[0] + 8 and 10 + bird_size > p[0]:
+                    if bird_y < p[1] - 8 or bird_y + bird_size > p[1] + 8:
+                        isGameRunning = False
+
+            hw.display.fill(0)
+            hw.display.blit(bird_fbuf, 10, int(bird_y), 0)
+
+            for p in pipes:
+                hw.display.rect(p[0], 0, 8, p[1]-8, 1)
+                hw.display.rect(p[0], p[1]+8, 8, 48-(p[1]+8), 1)
+
+            hw.font_default.write(f"Score: {score}", 0, 0)
+            hw.display.show()
+
+            if isGameRunning and isGameOver:
+                isGameRunning = False
+                break
+            
+            await asyncio.sleep_ms(30) # type: ignore
+
+        if not isGameRunning:
+            isGameOver = True
+            hw.play_sound(hw.SND_DIE, interrupt=True)
+            
+            hw.buttons.on_press(hw.BTN_C, restart_game)
+            hw.buttons.on_press(hw.BTN_A, exit_to_menu)
+
+            hw.display.fill(0)
+            hw.font_default.write("Koniec gry", 5, 5)
+            hw.font_default.write(f"Wynik: {score}", 5, 18)
+            hw.font_default.write("C-Graj A-Wyjdz", 0, 35)
+            hw.display.show()
+
+            while isGameOver:
+                await asyncio.sleep_ms(100) # type: ignore
+                
+                if isGameRunning and isGameOver:
+                    master_loop = False
+                    break
+
     hw.buttons.clear_callbacks()
     hw.display.fill(0)
-    hw.display.text("KONIEC", 15, 10, 1)
-    hw.display.text("WYNIK: " + str(score), 10, 25, 1)
     hw.display.show()
-    await asyncio.sleep(2)
