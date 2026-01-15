@@ -12,33 +12,32 @@ async def main_menu():
 
     await asyncio.sleep(3)
 
-    games = ["Flappy Bird", "Pacman", "Snake"] 
+    asyncio.create_task(hw.buttons.scan_task())
+
+    games = (("Flappy Bird", "flappy"), ("Pacman", "pacman"), ("Snake", "snake"))
     selected = 0 
     while True: 
         hw.display.fill(0) 
         hw.font_default.write("WYBIERZ GRE:", 0, 0)
         for i, name in enumerate(games): 
             prefix = ">" if i == selected else " " 
-            hw.font_default.write(prefix + name, 5, 15 + (i*10))
+            hw.font_default.write(prefix + name[0], 5, 15 + (i*10))
         hw.display.show()
         
-        btns = hw.get_buttons()
-        # print(f"Got buttons: {btns}")
-        #if not (btns & (1 << 2)): # Przycisk START
-        #    module = __import__(games[selected])
-        #    await module.start() 
+        if hw.buttons.was_pressed(hw.BTN_C): # Przycisk START
+           await hw.run_game(games[selected][1])
 
-        if not (btns & (1 << 7)): # Przycisk Up
+        if hw.buttons.was_pressed(hw.BTN_UP): # Przycisk Up
             selected = (selected - 1) % len(games) 
             hw.play_sound(up_snd)
-            await asyncio.sleep_ms(10) 
+            await asyncio.sleep_ms(10)  # type: ignore
 
-        if not (btns & (1 << 6)): # Przycisk Down 
+        if hw.buttons.was_pressed(hw.BTN_DOWN): # Przycisk Down 
             selected = (selected + 1) % len(games) 
             hw.play_sound(down_snd)
-            await asyncio.sleep_ms(10) 
+            await asyncio.sleep_ms(10)  # type: ignore
             
-        await asyncio.sleep_ms(100)
+        await asyncio.sleep_ms(100) # type: ignore
 
 try:
     asyncio.run(main_menu())

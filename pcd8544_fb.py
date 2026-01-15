@@ -26,7 +26,7 @@ SOFTWARE.
 
 from micropython import const
 from ustruct import pack
-from utime import sleep_us
+from utime import sleep_us # type: ignore
 import framebuf
 
 # Function set 0010 0xxx
