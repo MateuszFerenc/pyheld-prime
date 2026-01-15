@@ -122,5 +122,3 @@ async def start():
                     break
 
     hw.buttons.clear_callbacks()
-    hw.display.fill(0)
-    hw.display.show()
