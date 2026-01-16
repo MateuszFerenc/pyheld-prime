@@ -60,6 +60,7 @@ async def start():
         direction = (1, 0)
         snake = [(5, 5), (4, 5), (3, 5)]
         food = (random_int(0, 20), random_int(0, 11))
+        score_width, score_height = 32, 6
         
         hw.buttons.on_press(hw.BTN_UP,    lambda: change_dir((0, -1)))
         hw.buttons.on_press(hw.BTN_DOWN,  lambda: change_dir((0, 1)))
@@ -86,21 +87,23 @@ async def start():
                     score += 1
                     hw.play_sound([(1500, 30)])
                     while True:     # losowanie nowego jabłka poza wężem 
-                        food = (random_int(0, 20), random_int(0, 11))
-                        if food not in snake: break
+                        food = (random_int(0, 15), random_int(0, 8))
+                        if food not in snake and not (food[0]*4 < score_width + 2 and food[1]*4 < score_height + 2): break
                 else:
                     snake.pop()
 
             hw.display.fill(0)
             
             # hw.display.rect(food[0]*4, food[1]*4, 4, 4, 1)
-            hw.display.ellipse(food[0]*4, food[1]*4, 2, 2, 1)
+            hw.display.ellipse(food[0] * 4 + 2, food[1] * 4 + 2, 2, 2, 1)
             
-            for segment in snake:
-                hw.display.ellipse(segment[0]*4, segment[1]*4, 2, 2, 1, 1)
+            for i, segment in enumerate(snake):
+                hw.display.ellipse(segment[0] * 4 + 2, segment[1] * 4 + 2, 2, 2, 1, i != 0)
                 # hw.display.fill_rect(segment[0]*4, segment[1]*4, 4, 4, 1)
             
-            hw.font_default.write(f"Score: {score}", 0, 0)
+            score_text = f"Score: {score}"
+            hw.font_default.write(score_text, 0, 0)
+            _, _, score_width, score_height = hw.font_default.rect(score_text, 0, 0)
             hw.display.show()
 
             if not cheatMode:
