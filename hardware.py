@@ -14,15 +14,15 @@ SND_DIE  = [(400, 100), (200, 200)]
 
 async def _play_async(melody):
     try:
-        async with speaker_lock:
-            for freq, duration in melody:
+        async with speaker_lock:    # mutex na dostęp do głośnika
+            for freq, duration in melody:   # pobieranie tonu i jego czasu
                 if freq == 0:
-                    speaker.duty(0)
+                    speaker.duty(0)     # cisza
                 else:
-                    speaker.freq(freq)
-                    speaker.duty(512)
+                    speaker.freq(freq)  # częstotliwość
+                    speaker.duty(512)   # wypełnienie
                 await asyncio.sleep_ms(duration) # type: ignore
-            speaker.duty(0)
+            speaker.duty(0)     # wyciszenie po zakończeniu gry
     except asyncio.CancelledError:
         speaker.duty(0)
         raise
@@ -36,6 +36,12 @@ def play_sound(melody, interrupt=False):
     current_sound_task = asyncio.create_task(_play_async(melody))
     return current_sound_task
 
+def readBatteryVoltage():
+    adc = ADC(0)
+    raw_v = adc.read()
+    voltage = raw_v / ((100.0 / ( 100.0 + 220.0 + 142.0 )) * 1023.0)
+    return voltage
+
 def get_system_info():
     gcCollect()
     ram_free = gcMem_free()
@@ -46,9 +52,7 @@ def get_system_info():
     flash_total = fs_stat[0] * fs_stat[2]
     flash_free = fs_stat[0] * fs_stat[3]
     
-    adc = ADC(0)
-    raw_v = adc.read()
-    voltage = raw_v / ((100.0 / ( 100.0 + 220.0 + 142.0 )) * 1023.0)
+    voltage = readBatteryVoltage()
 
     cpu_freq = freq() // 1000000 # MHz
     
@@ -72,25 +76,24 @@ def show_system_info():
     display.show()
 
 async def run_game(game_name):
-    gcCollect()
+    gcCollect() # wstępne uruchomienie garbage collector
 
     try:
-        module = __import__(game_name)
-        await module.start()
+        module = __import__(game_name)  # import właściwego modułu
+        await module.start()    # wywołanie metody start
 
-        if game_name in sysModules:
+        if game_name in sysModules:     # czyszczenie pamięci modułów
             del sysModules[game_name]
 
-    except Exception as e:
+    except Exception as e:  # obsługa błędu gry
         display.fill(0)
         print(f"Game error:\n{e}")
         font_default.write("Game error:", 0, 0)
-        font_default.write(str(e)[:15], 0, 10)
-        font_default.write(str(e)[16:30], 0, 18)
+        font_default.multiline_text(str(e), 0, 10)
         display.show()
         await asyncio.sleep(2)
     
-    finally:
+    finally:    # finalne czyszczenie po grze, aby odzyskać jak najwięcej pamięci
         gcCollect()
 
 def show_pbm(filename: str, x: int = 0, y: int = 0):
@@ -121,12 +124,35 @@ def show_pbm(filename: str, x: int = 0, y: int = 0):
 
 
 class FontOverride(font):
-    def text_centered(self, text, y, color=1, screen_width=84):
+    def text_centered(self, text: str, y: int, color: int = 1):
         size_x, _ = self.size(text)
-        x = (screen_width // 2) - (size_x // 2)
+        x = (self._device.width // 2) - (size_x // 2)
         x = max(0, x)
         self.write(text, x, y, color)
+
+    def multiline_text(self, text: str, x: int, y: int, color: int = 1):
+        words = text.split(' ')
+        current_line = ""
+        current_y = y
         
+        for word in words:
+            test_line = current_line + word + " "
+            w, h = self.size(test_line)
+            
+            if x + w > self._device.width:
+                self.write(current_line, x, current_y, color)
+                current_line = word + " "
+                current_y += self._font.height() + 2
+                
+                if current_y > self._device.height - self._font.height():
+                    current_line = ""
+                    break
+            else:
+                current_line = test_line
+        
+        if current_line:
+            self.write(current_line, x, current_y, color)
+
 
 class ButtonEvents:
     def __init__(self, i2c, address):
@@ -135,24 +161,40 @@ class ButtonEvents:
         self.last_state = 0xFF
         self.pressed_mask = 0x00
         self.callbacks = {}
+        self.callbacks_combo = {}
 
-    def on_press(self, btn_bit, callback):
+    def on_press(self, btn_bit: int, callback):
         self.callbacks[btn_bit] = callback
+
+    def on_combo(self, bits: int, callback):
+        self.callbacks_combo[bits] = callback
 
     def clear_callbacks(self):
         self.callbacks = {}
+        self.callbacks_combo = {}
 
     async def scan_task(self):
+        active_combos = set()
         while True:
             try:
-                current = self.i2c.readfrom(self.address, 1)[0]
-                new_presses = (self.last_state & ~current)
+                current = self.i2c.readfrom(self.address, 1)[0] # odczyt z ekspandera
+                new_presses = (self.last_state & ~current)  # wyznaczenie tylko zmienionych bitów
                 
-                if new_presses:
-                    self.pressed_mask |= new_presses
+                if self.callbacks_combo:
+                    for bits, callback in self.callbacks_combo.items():
+                        is_pressed = (current & bits) == 0
                     
+                        if is_pressed and bits not in active_combos:
+                            callback()
+                            active_combos.add(bits)
+                        elif not is_pressed and bits in active_combos:
+                            active_combos.remove(bits)
+
+                if new_presses: # jeżeli nowe wciśnięcia
+                    self.pressed_mask |= new_presses
+                    # wywołanie funkcji zarejestrowanej dla danego przycisku
                     for bit, callback in self.callbacks.items():
-                        if new_presses & bit:
+                        if new_presses & bit and not active_combos:
                             callback()
                                 
                 self.last_state = current
@@ -189,7 +231,7 @@ cs = Pin(0)
 dc = Pin(2)
 
 display = pcd8544_fb.PCD8544_FB(spi, cs, dc)  
-display.contrast(50)
+display.contrast(60)
 
 font_default = FontOverride(display, ezFBfont_4x6_ascii_06)
 # font_big = font(display, ezFBfont_6x12_ascii_10)

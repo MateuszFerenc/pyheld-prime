@@ -55,21 +55,21 @@ async def start():
         hw.play_sound(hw.SND_START, interrupt=True)
 
         while isGameRunning:
-            new_head = (snake[0][0] + direction[0], snake[0][1] + direction[1])
-
+            new_head = (snake[0][0] + direction[0], snake[0][1] + direction[1]) # ustalenie nowej pozycji głowy
+            # detekcja kolizji z granicami ekranu
             if new_head[0] < 0 or new_head[0] > 20 or new_head[1] < 0 or new_head[1] > 11:
                 isGameRunning = False
-            
+            # detekcja kolizji z samym sobą
             if new_head in snake:
                 isGameRunning = False
 
             if isGameRunning:
                 snake.insert(0, new_head)
                 
-                if new_head == food:
+                if new_head == food:    # zjedzono jabłko
                     score += 1
                     hw.play_sound([(1500, 30)])
-                    while True:
+                    while True:     # losowanie nowego jabłka poza wężem 
                         food = (random_int(0, 20), random_int(0, 11))
                         if food not in snake: break
                 else:
@@ -77,12 +77,14 @@ async def start():
 
             hw.display.fill(0)
             
-            hw.display.rect(food[0]*4, food[1]*4, 4, 4, 1)
+            # hw.display.rect(food[0]*4, food[1]*4, 4, 4, 1)
+            hw.display.ellipse(food[0]*4, food[1]*4, 2, 2, 1)
             
             for segment in snake:
-                hw.display.fill_rect(segment[0]*4, segment[1]*4, 4, 4, 1)
+                hw.display.ellipse(segment[0]*4, segment[1]*4, 2, 2, 1, 1)
+                # hw.display.fill_rect(segment[0]*4, segment[1]*4, 4, 4, 1)
             
-            hw.font_default.write("Score: {}".format(score), 0, 0)
+            hw.font_default.write(f"Score: {score}", 0, 0)
             hw.display.show()
 
             delay = max(40, 150 - (score * 5))
@@ -102,7 +104,7 @@ async def start():
 
             hw.display.fill(0)
             hw.font_default.write("Koniec gry", 5, 5)
-            hw.font_default.write("Wynik: {}".format(score), 5, 18)
+            hw.font_default.write(f"Wynik: {score}", 5, 18)
             hw.font_default.write("C-Graj A-Wyjdz", 0, 35)
             hw.display.show()
 

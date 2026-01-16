@@ -7,6 +7,7 @@ isGameRunning = False
 isGameOver = False
 score = 0
 bird_vel = 0.0
+bird_size = 6
 
 bird_data = bytearray([
     0x0C, 0x12, 0xC5, 0x22, 0x54, 0x44, 0x38, 0x28
@@ -30,10 +31,21 @@ def jump():
     global bird_vel
     if isGameRunning:
         bird_vel = -3.2
-        hw.play_sound([(600, 30), (800, 30)])
+        hw.play_sound([(400, 30), (600, 30)])
+
+def cheat():
+    global bird_size
+    hw.play_sound([(400, 200), (600, 200), (800, 200)])
+    if bird_size == 6:
+        hw.font_default.write("x", 80, 42)
+        bird_size = 1
+    else:
+        hw.font_default.write(" ", 80, 42)
+        bird_size = 6
+    hw.display.show()
 
 async def start():
-    global isGameRunning, isGameOver, score, bird_vel
+    global isGameRunning, isGameOver, score, bird_vel, bird_size
     
     hw.buttons.on_press(hw.BTN_A, exit_to_menu)
 
@@ -56,39 +68,39 @@ async def start():
         gravity = 0.45
         pipes = [[84, 24]] 
         pipe_speed = 2
-        bird_size = 6 # łatwiej niż 8px
         
         hw.buttons.on_press(hw.BTN_UP, jump)
+        hw.buttons.on_combo(hw.BTN_A | hw.BTN_B, cheat)
 
         hw.play_sound(hw.SND_START, interrupt=True)
 
         while isGameRunning:
-            bird_vel += gravity
-            bird_y += bird_vel
+            bird_vel += gravity     # prędkość spadania
+            bird_y += bird_vel      # pozycja OY
             
-            for p in pipes:
+            for p in pipes:     # przesunięcie pozycji rur w OX
                 p[0] -= pipe_speed
             
-            if pipes[0][0] < -8:
+            if pipes[0][0] < -4:    # wykrywanie przejścia miedzy rurami
                 pipes.pop(0)
                 score += 1
                 hw.play_sound([(1500, 30)])
             
-            if pipes[-1][0] < 50:
+            if pipes[-1][0] < 50:   # tworzenie nowej rury
                 pipes.append([84, random_int(12, 36)])
 
-            if bird_y > 44 or bird_y < 0:
+            if bird_y > 44 or bird_y < 0:   # wykrycie wypadnięcia ptaka z ekranu
                 isGameRunning = False
             
-            for p in pipes:
+            for p in pipes:     # wykrycie kolizji z rurami
                 if 10 < p[0] + 8 and 10 + bird_size > p[0]:
                     if bird_y < p[1] - 8 or bird_y + bird_size > p[1] + 8:
                         isGameRunning = False
 
             hw.display.fill(0)
-            hw.display.blit(bird_fbuf, 10, int(bird_y), 0)
+            hw.display.blit(bird_fbuf, 10, int(bird_y), 0) # rysowanie ptaka
 
-            for p in pipes:
+            for p in pipes: # rysowanie rur
                 hw.display.rect(p[0], 0, 8, p[1]-8, 1)
                 hw.display.rect(p[0], p[1]+8, 8, 48-(p[1]+8), 1)
 
