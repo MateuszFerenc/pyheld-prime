@@ -2,7 +2,6 @@ import uasyncio as asyncio
 import hardware as hw
 import random
 
-__game_name__ = "snake"
 __long_name__ = "Snake"
 
 isGameRunning = False
@@ -59,8 +58,8 @@ async def start():
         score = 0
         direction = (1, 0)
         snake = [(5, 5), (4, 5), (3, 5)]
-        food = (random_int(0, 20), random_int(0, 11))
-        score_width, score_height = 32, 6
+        food = (random_int(6, 19), random_int(3, 10))
+        score_width, score_height = 32, 6 # height=6 fixed because of font height
         
         hw.buttons.on_press(hw.BTN_UP,    lambda: change_dir((0, -1)))
         hw.buttons.on_press(hw.BTN_DOWN,  lambda: change_dir((0, 1)))
@@ -87,8 +86,9 @@ async def start():
                     score += 1
                     hw.play_sound([(1500, 30)])
                     while True:     # losowanie nowego jabłka poza wężem 
-                        food = (random_int(0, 15), random_int(0, 8))
-                        if food not in snake and not (food[0]*4 < score_width + 2 and food[1]*4 < score_height + 2): break
+                        food = (random_int(0, 20), random_int(0, 11)) # a także poza obszarem wyniku
+                        if food not in snake and ((food[0]*4 > (score_width + 2)) or (food[1]*4 > (score_height + 2))): 
+                            break
                 else:
                     snake.pop()
 
@@ -103,7 +103,7 @@ async def start():
             
             score_text = f"Score: {score}"
             hw.font_default.write(score_text, 0, 0)
-            _, _, score_width, score_height = hw.font_default.rect(score_text, 0, 0)
+            score_width = len(score_text)*4
             hw.display.show()
 
             if not cheatMode:

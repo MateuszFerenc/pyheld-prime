@@ -3,7 +3,6 @@ import hardware as hw
 import random
 from framebuf import FrameBuffer, MONO_HLSB
 
-__game_name__ = "flappy"
 __long_name__ = "Flappy Bird"
 
 isGameRunning = False
