@@ -2,10 +2,14 @@ import uasyncio as asyncio
 import hardware as hw
 import random
 
+__game_name__ = "snake"
+__long_name__ = "Snake"
+
 isGameRunning = False
 isGameOver = False
 score = 0
 direction = (1, 0)
+cheatMode = False
 
 def random_int(min_val, max_val):
     span = max_val - min_val + 1
@@ -25,6 +29,16 @@ def change_dir(new_dir):
     if (new_dir[0] * -1 != direction[0]) or (new_dir[1] * -1 != direction[1]):
         direction = new_dir
 
+def cheat():
+    global cheatMode
+    if not cheatMode:
+        hw.play_sound([(400, 200), (600, 200), (800, 200)])
+        cheatMode = True
+    else:
+        hw.play_sound([(800, 200), (600, 200), (400, 200)])
+        cheatMode = False
+    hw.display.show()
+
 async def start():
     global isGameRunning, isGameOver, score, direction
     
@@ -33,6 +47,7 @@ async def start():
     hw.display.fill(0)
     hw.font_default.text_centered("MonkeSoft presents:", 0)
     hw.font_default.text_centered("Snake", 10)
+    hw.font_default.write(f"RAM Free: {hw.gcMem_free() // 1024} kB", 0, 42)
     hw.display.show()
 
     await asyncio.sleep(2)
@@ -51,6 +66,7 @@ async def start():
         hw.buttons.on_press(hw.BTN_LEFT,  lambda: change_dir((-1, 0)))
         hw.buttons.on_press(hw.BTN_RIGHT, lambda: change_dir((1, 0)))
         hw.buttons.on_press(hw.BTN_A,     exit_to_menu)
+        hw.buttons.on_combo(hw.BTN_A | hw.BTN_B, cheat)
 
         hw.play_sound(hw.SND_START, interrupt=True)
 
@@ -87,7 +103,10 @@ async def start():
             hw.font_default.write(f"Score: {score}", 0, 0)
             hw.display.show()
 
-            delay = max(40, 150 - (score * 5))
+            if not cheatMode:
+                delay = max(40, 150 - (score * 5))
+            else:
+                delay = 150
         
             if isGameRunning and isGameOver:
                 isGameRunning = False
@@ -116,3 +135,6 @@ async def start():
                     break
 
     hw.buttons.clear_callbacks()
+
+if __name__ == "__main__":
+    print(f"This file should not be run standalone!")

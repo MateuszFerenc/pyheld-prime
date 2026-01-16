@@ -1,5 +1,6 @@
 micropython-esp8266-stubs==1.27.0.post1
 micropython-stdlib-stubs==1.27.0
 mpremote==1.27.0
+mpy_cross==1.27.0.post2
 platformdirs==4.5.1
 pyserial==3.5

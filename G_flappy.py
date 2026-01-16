@@ -3,6 +3,9 @@ import hardware as hw
 import random
 from framebuf import FrameBuffer, MONO_HLSB
 
+__game_name__ = "flappy"
+__long_name__ = "Flappy Bird"
+
 isGameRunning = False
 isGameOver = False
 score = 0
@@ -35,11 +38,12 @@ def jump():
 
 def cheat():
     global bird_size
-    hw.play_sound([(400, 200), (600, 200), (800, 200)])
     if bird_size == 6:
+        hw.play_sound([(400, 200), (600, 200), (800, 200)])
         hw.font_default.write("x", 80, 42)
         bird_size = 1
     else:
+        hw.play_sound([(800, 200), (600, 200), (400, 200)])
         hw.font_default.write(" ", 80, 42)
         bird_size = 6
     hw.display.show()
@@ -52,6 +56,7 @@ async def start():
     hw.display.fill(0)
     hw.font_default.text_centered("MonkeSoft presents:", 0)
     hw.font_default.text_centered("Flappy bird", 10)
+    hw.font_default.write(f"RAM Free: {hw.gcMem_free() // 1024} kB", 0, 42)
     hw.display.show()
 
     await asyncio.sleep(2)
@@ -134,3 +139,6 @@ async def start():
                     break
 
     hw.buttons.clear_callbacks()
+
+if __name__ == "__main__":
+    print(f"This file should not be run standalone!")

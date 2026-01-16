@@ -5,7 +5,7 @@ from ezFBfont import ezFBfont as font
 import ezFBfont_4x6_ascii_06 
 # import ezFBfont_6x12_ascii_10
 from gc import collect as gcCollect, mem_free as gcMem_free, mem_alloc as gcMem_alloc # type: ignore
-from os import statvfs # type: ignore
+from os import statvfs, listdir # type: ignore
 from sys import modules as sysModules
 import framebuf
 
@@ -81,6 +81,8 @@ async def run_game(game_name):
     try:
         module = __import__(game_name)  # import właściwego modułu
         await module.start()    # wywołanie metody start
+
+        del module
 
         if game_name in sysModules:     # czyszczenie pamięci modułów
             del sysModules[game_name]
