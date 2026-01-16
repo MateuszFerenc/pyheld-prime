@@ -226,6 +226,18 @@ BTN_A = 1 << 1
 BTN_B = 1 << 2
 BTN_C = 1 << 3
 
+network = __import__("network")
+sta_if = network.WLAN(network.STA_IF)
+sta_if.active(False)
+
+ap_if = network.WLAN(network.AP_IF)
+ap_if.active(False)
+
+del sta_if
+del ap_if
+del network
+gcCollect()
+
 i2c = I2C(scl=Pin(5), sda=Pin(4))
 spi = SPI(1, baudrate=8000000, polarity=0, phase=0)
 
@@ -236,7 +248,6 @@ display = pcd8544_fb.PCD8544_FB(spi, cs, dc)
 display.contrast(60)
 
 font_default = FontOverride(display, ezFBfont_4x6_ascii_06)
-# font_big = font(display, ezFBfont_6x12_ascii_10)
 
 pcf_addr = 0x20
 
