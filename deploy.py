@@ -4,7 +4,7 @@ from pathlib import Path
 
 SOURCE_DIR = "."
 BUILD_DIR = "build"
-EXCLUDE_FILES = ["deploy.py"] 
+EXCLUDE_FILES = ["deploy.py", "sdcard.py"] 
 KEEP_AS_PY = ["main.py"] 
 
 def run_command(cmd):

@@ -51,6 +51,16 @@ async def start():
 
     await asyncio.sleep(2)
 
+    hw.display.rect(0, 42, 84, 6, 0, True)
+    hw.font_default.text_centered("Press C to start", 42)
+    hw.display.show()
+
+    hw.buttons.reset_state()
+    while True:
+        if hw.buttons.was_pressed(hw.BTN_C):
+            break
+        await asyncio.sleep_ms(100) # type: ignore
+
     master_loop = True
     while master_loop:
         isGameRunning = True

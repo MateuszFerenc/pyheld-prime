@@ -1,13 +1,16 @@
-import pcd8544_fb
+from pcd8544_fb import PCD8544_FB
 import uasyncio as asyncio
 from machine import Pin, SPI, I2C, PWM, ADC, freq
 from ezFBfont import ezFBfont as font
 import ezFBfont_4x6_ascii_06 
 # import ezFBfont_6x12_ascii_10
 from gc import collect as gcCollect, mem_free as gcMem_free, mem_alloc as gcMem_alloc # type: ignore
-from os import statvfs, listdir # type: ignore
+import os
 from sys import modules as sysModules
 import framebuf
+# import sdcard # type: ignore
+
+__version__ = "v1.0.1"
 
 SND_START = [(880, 100), (0, 50), (880, 100), (1174, 200)]
 SND_DIE  = [(400, 100), (200, 200)]
@@ -48,7 +51,7 @@ def get_system_info():
     ram_alloc = gcMem_alloc()
     ram_total = ram_free + ram_alloc
     
-    fs_stat = statvfs('/')
+    fs_stat = os.statvfs('/') # type: ignore
     flash_total = fs_stat[0] * fs_stat[2]
     flash_free = fs_stat[0] * fs_stat[3]
     
@@ -98,32 +101,32 @@ async def run_game(game_name):
     finally:    # finalne czyszczenie po grze, aby odzyskać jak najwięcej pamięci
         gcCollect()
 
-def show_pbm(filename: str, x: int = 0, y: int = 0):
-    gcCollect()
-    try:
-        with open(filename, 'rb') as f:
-            type = f.readline()
-            if type != b'P4\n':
-                line = f.readline()
-                while line.startswith(b'#'):
-                    line = f.readline()
-                dims = line.split()
-            else:
-                dims = f.readline().split()
-            
-            width = int(dims[0])
-            height = int(dims[1])
-            
-            data = f.read()
-            
-            fb = framebuf.FrameBuffer(bytearray(data), width, height, framebuf.MONO_HLSB)
-            display.blit(fb, x, y)
-            display.show()
-            del fb
-            gcCollect()
-    except Exception as e:
-        print("Błąd wczytywania PBM:", e)
 
+class DisplayOverride(PCD8544_FB):
+    def load_pbm(self, filename: str, x: int = 0, y: int = 0):
+        gcCollect()
+        try:
+            with open(filename, 'rb') as f:
+                type = f.readline()
+                if type != b'P4\n':
+                    line = f.readline()
+                    while line.startswith(b'#'):
+                        line = f.readline()
+                    dims = line.split()
+                else:
+                    dims = f.readline().split()
+                
+                width = int(dims[0])
+                height = int(dims[1])
+                
+                data = f.read()
+                
+                fb = framebuf.FrameBuffer(bytearray(data), width, height, framebuf.MONO_HLSB)
+                display.blit(fb, x, y)
+                del fb
+                gcCollect()
+        except Exception as e:
+            print("Błąd wczytywania PBM:", e)
 
 class FontOverride(font):
     def text_centered(self, text: str, y: int, color: int = 1):
@@ -244,7 +247,7 @@ spi = SPI(1, baudrate=8000000, polarity=0, phase=0)
 cs = Pin(0)
 dc = Pin(2)
 
-display = pcd8544_fb.PCD8544_FB(spi, cs, dc)  
+display = DisplayOverride(spi, cs, dc)  
 display.contrast(60)
 
 font_default = FontOverride(display, ezFBfont_4x6_ascii_06)
