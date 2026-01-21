@@ -1,32 +1,31 @@
-import uasyncio as asyncio
-import hardware as hw
+from hardware import Hardware, System, __version__, fileSystem, sysModules, uasyncio
 
-power_up_snd = [(440, 100), (880, 100), (1760, 150)]
-up_snd = [(500, 100), (760, 100)]
-down_snd = [(760, 100), (500, 100)]
 
 async def main_menu():
-    hw.show_system_info()
-    await asyncio.sleep(1)
+    hw = Hardware()
+    sys = System(display = hw.display, font = hw.font_default)
+
+    sys.show_system_info()
+    await hw.asyncio.sleep(1)
 
     hw.display.load_pbm("logo.pbm")
-    hw.font_default.write(hw.__version__, 0, 42)
+    hw.font_default.write(__version__, 0, 42)
     hw.display.show()
-    hw.play_sound(power_up_snd)
-    await asyncio.sleep(2)
+    hw.sound.play_sound(hw.sound.POWER_UP_SND)
+    await hw.asyncio.sleep(2)
 
-    asyncio.create_task(hw.buttons.scan_task())
+    hw.asyncio.create_task(hw.buttons.scan_task())
 
     hw.gcCollect()
     games = []
-    for game in hw.os.listdir('/'):
+    for game in fileSystem.listdir('/'):
         if game[:2] == "G_":
             module = __import__(game.split('.')[0])
             games.append((getattr(module, '__long_name__'), game.split('.')[0]))
 
             del module
-            if games[-1][1] in hw.sysModules:
-                del hw.sysModules[games[-1][1]]
+            if games[-1][1] in sysModules:
+                del sysModules[games[-1][1]]
             hw.gcCollect()
 
 
@@ -41,7 +40,7 @@ async def main_menu():
         
         if hw.buttons.was_pressed(hw.BTN_C):
            hw.buttons.reset_state()
-           await hw.run_game(games[selected[0] + selected[1]][1])
+           await sys.run_game(games[selected[0] + selected[1]][1], hardware=hw)
            hw.buttons.reset_state()
            hw.buttons.clear_callbacks()
 
@@ -54,9 +53,8 @@ async def main_menu():
                 else:
                     selected[0] = 0
                     selected[1] = 0
-            print(f"selected: {selected}")
-            print(f"range: ({selected[0]}, {selected[0]+3}), games: {games[selected[0]:selected[0]+3]}" )
-            hw.play_sound(up_snd)
+
+            hw.sound.play_sound(hw.sound.UP_SND)
 
         if hw.buttons.was_pressed(hw.BTN_UP):
             if selected[1] != 0:
@@ -67,17 +65,16 @@ async def main_menu():
                 else:
                     selected[0] = len(games) - page_size
                     selected[1] = page_size - 1
-            print(f"selected: {selected}")
-            print(f"range: ({selected[0]}, {selected[0]+3}), games: {games[selected[0]:selected[0]+3]}" )
-            hw.play_sound(down_snd)
+            
+            hw.sound.play_sound(hw.sound.DOWN_SND)
 
         if hw.buttons.was_pressed(hw.BTN_B):
-            hw.show_system_info()
-            await asyncio.sleep(2)
+            sys.show_system_info()
+            await hw.asyncio.sleep(2)
             
-        await asyncio.sleep_ms(100) # type: ignore
+        await hw.asyncio.sleep_ms(100) # type: ignore
 
 try:
-    asyncio.run(main_menu())
+    uasyncio.run(main_menu())
 except KeyboardInterrupt:
     pass
