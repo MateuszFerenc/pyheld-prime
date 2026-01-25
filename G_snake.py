@@ -46,7 +46,7 @@ async def start():
     hw.display.fill(0)
     hw.font_default.text_centered("MonkeSoft presents:", 0)
     hw.font_default.text_centered("Snake", 10)
-    hw.font_default.write(f"RAM Free: {hw.gcMem_free() // 1024} kB", 0, 42)
+    hw.font_default.write("RAM Free: %skB" % round(hw.gcMem_free() / 1024, 1), 0, 42)
     hw.display.show()
 
     await asyncio.sleep(2)
@@ -111,7 +111,7 @@ async def start():
                 hw.display.ellipse(segment[0] * 4 + 2, segment[1] * 4 + 2, 2, 2, 1, i != 0)
                 # hw.display.fill_rect(segment[0]*4, segment[1]*4, 4, 4, 1)
             
-            score_text = f"Score: {score}"
+            score_text = "Score: %s" %score
             hw.font_default.write(score_text, 0, 0)
             score_width = len(score_text)*4
             hw.display.show()
@@ -135,9 +135,9 @@ async def start():
             hw.buttons.on_press(hw.BTN_A, exit_to_menu)
 
             hw.display.fill(0)
-            hw.font_default.write("Koniec gry", 5, 5)
-            hw.font_default.write(f"Wynik: {score}", 5, 18)
-            hw.font_default.write("C-Graj A-Wyjdz", 0, 35)
+            hw.font_default.text_centered("GAME OVER", 5)
+            hw.font_default.write("Score: %s" % score, 5, 18)
+            hw.font_default.text_centered("C-Play again A-Exit", 0, 35)
             hw.display.show()
 
             while isGameOver:
@@ -150,4 +150,4 @@ async def start():
     hw.buttons.clear_callbacks()
 
 if __name__ == "__main__":
-    print(f"This file should not be run standalone!")
+    print("This file should not be run standalone!")

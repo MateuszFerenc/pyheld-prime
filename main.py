@@ -1,4 +1,3 @@
-import uasyncio as asyncio
 import hardware as hw
 
 power_up_snd = [(440, 100), (880, 100), (1760, 150)]
@@ -7,15 +6,15 @@ down_snd = [(760, 100), (500, 100)]
 
 async def main_menu():
     hw.show_system_info()
-    await asyncio.sleep(1)
+    await hw.asyncio.sleep(1)
 
     hw.display.load_pbm("logo.pbm")
     hw.font_default.write(hw.__version__, 0, 42)
     hw.display.show()
     hw.play_sound(power_up_snd)
-    await asyncio.sleep(2)
+    await hw.asyncio.sleep(2)
 
-    asyncio.create_task(hw.buttons.scan_task())
+    hw.asyncio.create_task(hw.buttons.scan_task())
 
     hw.gcCollect()
     games = []
@@ -54,8 +53,7 @@ async def main_menu():
                 else:
                     selected[0] = 0
                     selected[1] = 0
-            print(f"selected: {selected}")
-            print(f"range: ({selected[0]}, {selected[0]+3}), games: {games[selected[0]:selected[0]+3]}" )
+
             hw.play_sound(up_snd)
 
         if hw.buttons.was_pressed(hw.BTN_UP):
@@ -67,17 +65,16 @@ async def main_menu():
                 else:
                     selected[0] = len(games) - page_size
                     selected[1] = page_size - 1
-            print(f"selected: {selected}")
-            print(f"range: ({selected[0]}, {selected[0]+3}), games: {games[selected[0]:selected[0]+3]}" )
+
             hw.play_sound(down_snd)
 
         if hw.buttons.was_pressed(hw.BTN_B):
             hw.show_system_info()
-            await asyncio.sleep(2)
+            await hw.asyncio.sleep(2)
             
-        await asyncio.sleep_ms(100) # type: ignore
+        await hw.asyncio.sleep_ms(100) # type: ignore
 
 try:
-    asyncio.run(main_menu())
+    hw.asyncio.run(main_menu())
 except KeyboardInterrupt:
     pass

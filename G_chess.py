@@ -1,7 +1,7 @@
 __long_name__ = "Chess"
 
 async def start():
-    raise Exception(f"Game \"{__long_name__}\" is not implemented yet..")
+    raise Exception("Game \"%s\" is not implemented yet.." % __long_name__)
 
 if __name__ == "__main__":
-    print(f"This file should not be run standalone!")
+    print("This file should not be run standalone!")

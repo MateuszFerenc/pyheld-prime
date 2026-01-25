@@ -10,7 +10,7 @@ from sys import modules as sysModules
 import framebuf
 # import sdcard # type: ignore
 
-__version__ = "v1.0.1"
+__version__ = "v1.0.2"
 
 SND_START = [(880, 100), (0, 50), (880, 100), (1174, 200)]
 SND_DIE  = [(400, 100), (200, 200)]
@@ -72,10 +72,10 @@ def show_system_info():
     info = get_system_info()
     display.fill(0)
     font_default.text_centered("-- SYS INFO --", 0)
-    font_default.write(f"CPU: {info['cpu']}MHz", 0, 10)
-    font_default.write(f"RAM: {info['ram']}\\{info['all_ram']}kB", 0, 18)
-    font_default.write(f"MEM: {info['flash']}\\{info['all_flash']}kB", 0, 26)
-    font_default.write(f"BAT: {info['volt']}V", 0, 34)
+    font_default.write("CPU: %sMHz" % info['cpu'], 0, 10)
+    font_default.write("RAM: %s\\%skB" % (info['ram'], info['all_ram']), 0, 18)
+    font_default.write("MEM: %s\\%skB" % (info['flash'], info['all_flash']), 0, 26)
+    font_default.write("BAT: %sV" % info['volt'], 0, 34)
     display.show()
 
 async def run_game(game_name):
@@ -92,7 +92,8 @@ async def run_game(game_name):
 
     except Exception as e:  # obsługa błędu gry
         display.fill(0)
-        print(f"Game error:\n{e}")
+        print("Game error:")
+        print(str(e))
         font_default.write("Game error:", 0, 0)
         font_default.multiline_text(str(e), 0, 10)
         display.show()
@@ -204,7 +205,8 @@ class ButtonEvents:
                                 
                 self.last_state = current
             except Exception as e:
-                print(f"hardware/ButtonEvents.scan_task error: {e}")
+                print("hardware/ButtonEvents.scan_task error:")
+                print(e)
             
             await asyncio.sleep_ms(20) # type: ignore
 
