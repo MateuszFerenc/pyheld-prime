@@ -31,10 +31,10 @@ def change_dir(new_dir):
 def cheat():
     global cheatMode
     if not cheatMode:
-        hw.play_sound([(400, 200), (600, 200), (800, 200)])
+        hw.play_sound(hw.SND_CHEAT_ON)
         cheatMode = True
     else:
-        hw.play_sound([(800, 200), (600, 200), (400, 200)])
+        hw.play_sound(hw.SND_CHEAT_OFF)
         cheatMode = False
     hw.display.show()
 
@@ -45,8 +45,8 @@ async def start():
 
     hw.display.fill(0)
     hw.font_default.text_centered("MonkeSoft presents:", 0)
-    hw.font_default.text_centered("Snake", 10)
-    hw.font_default.write("RAM Free: %skB" % round(hw.gcMem_free() / 1024, 1), 0, 42)
+    hw.font_default.text_centered(__long_name__, 10)
+    hw.font_default.write("RAM Free: %skB" % round(hw.gcMem_free() / 1024, 2), 0, 42)
     hw.display.show()
 
     await asyncio.sleep(2)
@@ -137,11 +137,16 @@ async def start():
             hw.display.fill(0)
             hw.font_default.text_centered("GAME OVER", 5)
             hw.font_default.write("Score: %s" % score, 5, 18)
-            hw.font_default.text_centered("C-Play again A-Exit", 0, 35)
+            hw.font_default.text_centered("C-Play again A-Exit", 35)
             hw.display.show()
+            inverted = True
 
             while isGameOver:
-                await asyncio.sleep_ms(100) # type: ignore
+                await asyncio.sleep_ms(500) # type: ignore
+                
+                hw.font_default.text_centered("GAME OVER", 5, inverted, not inverted)
+                inverted = not inverted
+                hw.display.show()
 
                 if isGameRunning and isGameOver:
                     master_loop = False

@@ -54,10 +54,10 @@ async def start():
 
     hw.display.fill(0)
     hw.font_default.text_centered("MonkeSoft presents:", 0)
-    hw.font_default.text_centered("Flappy bird", 10)
+    hw.font_default.text_centered(__long_name__, 10)
     # .format ??????? 
     # and b'text' as bytes?
-    hw.font_default.write("RAM Free: %skB" % round(hw.gcMem_free() / 1024, 1), 0, 42)
+    hw.font_default.write("RAM Free: %skB" % round(hw.gcMem_free() / 1024, 2), 0, 42)
     hw.display.show()
 
     await asyncio.sleep(2)
@@ -138,12 +138,17 @@ async def start():
             hw.display.fill(0)
             hw.font_default.text_centered("GAME OVER", 5)
             hw.font_default.write("Score: %s" % score, 5, 18)
-            hw.font_default.text_centered("C-Play again A-Exit", 0, 35)
+            hw.font_default.text_centered("C-Play again A-Exit", 35)
             hw.display.show()
+            inverted = True
 
             while isGameOver:
-                await asyncio.sleep_ms(100) # type: ignore
+                await asyncio.sleep_ms(500) # type: ignore
                 
+                hw.font_default.text_centered("GAME OVER", 5, inverted, not inverted)
+                inverted = not inverted
+                hw.display.show()
+
                 if isGameRunning and isGameOver:
                     master_loop = False
                     break

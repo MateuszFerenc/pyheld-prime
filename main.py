@@ -1,8 +1,8 @@
 import hardware as hw
 
-power_up_snd = [(440, 100), (880, 100), (1760, 150)]
-up_snd = [(500, 100), (760, 100)]
-down_snd = [(760, 100), (500, 100)]
+power_up_snd = ((440, 100), (880, 100), (1760, 150))
+up_snd = ((500, 100), (760, 100))
+down_snd = ((760, 100), (500, 100))
 
 async def main_menu():
     hw.show_system_info()
@@ -33,9 +33,11 @@ async def main_menu():
     page_size = 3
     while True: 
         hw.display.fill(0) 
-        hw.font_default.write("WYBIERZ GRE:", 0, 0)
+        hw.font_default.text_centered("Choose the game:", 5, 5)
+        # hw.font_default.write("Choose the game:", 5, 5)
         for i, game in zip(range(page_size), games[selected[0]:selected[0]+3]): 
-            hw.font_default.write(game[0], 2, 15 + (i * 10), i != (selected[1] % page_size), i == (selected[1] % page_size))
+            hw.font_default.text_centered(game[0], 15 + (i * 10), i != (selected[1] % page_size), i == (selected[1] % page_size))
+            # hw.font_default.write(game[0], 10, 15 + (i * 10), i != (selected[1] % page_size), i == (selected[1] % page_size))
         hw.display.show()
         
         if hw.buttons.was_pressed(hw.BTN_C):

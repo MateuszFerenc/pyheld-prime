@@ -10,10 +10,12 @@ from sys import modules as sysModules
 import framebuf
 # import sdcard # type: ignore
 
-__version__ = "v1.0.2"
+__version__ = "v1.0.3"
 
-SND_START = [(880, 100), (0, 50), (880, 100), (1174, 200)]
-SND_DIE  = [(400, 100), (200, 200)]
+SND_START = ((880, 100), (0, 50), (880, 100), (1174, 200))
+SND_DIE  = ((400, 100), (200, 200))
+SND_CHEAT_ON = ((400, 200), (600, 200), (800, 200))
+SND_CHEAT_OFF = ((800, 200), (600, 200), (400, 200))
 
 async def _play_async(melody):
     try:
@@ -60,8 +62,8 @@ def get_system_info():
     cpu_freq = freq() // 1000000 # MHz
     
     return {
-        "ram": ram_free // 1024,
-        "all_ram": ram_total // 1024,
+        "ram": round(ram_free / 1024, 2),
+        "all_ram": round(ram_total / 1024, 2),
         "flash": flash_free // 1024,
         "all_flash": flash_total // 1024,
         "volt": round(voltage, 2),
@@ -76,6 +78,7 @@ def show_system_info():
     font_default.write("RAM: %s\\%skB" % (info['ram'], info['all_ram']), 0, 18)
     font_default.write("MEM: %s\\%skB" % (info['flash'], info['all_flash']), 0, 26)
     font_default.write("BAT: %sV" % info['volt'], 0, 34)
+    font_default.write("VER: %s" % __version__, 0, 42)
     display.show()
 
 async def run_game(game_name):
@@ -130,11 +133,11 @@ class DisplayOverride(PCD8544_FB):
             print("Błąd wczytywania PBM:", e)
 
 class FontOverride(font):
-    def text_centered(self, text: str, y: int, color: int = 1):
+    def text_centered(self, text: str, y: int, color_fg: int = 1, color_bg: int = 0):
         size_x, _ = self.size(text)
         x = (self._device.width // 2) - (size_x // 2)
         x = max(0, x)
-        self.write(text, x, y, color)
+        self.write(text, x, y, color_fg, color_bg)
 
     def multiline_text(self, text: str, x: int, y: int, color: int = 1):
         words = text.split(' ')
