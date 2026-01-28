@@ -1,5 +1,5 @@
-import uasyncio as asyncio
 import hardware as hw
+from hardware import asyncio
 import random
 
 __long_name__ = "Snake"
@@ -40,8 +40,6 @@ def cheat():
 
 async def start():
     global isGameRunning, isGameOver, score, direction
-    
-    hw.buttons.on_press(hw.BTN_A, exit_to_menu)
 
     hw.display.fill(0)
     hw.font_default.text_centered("MonkeSoft presents:", 0)
@@ -54,6 +52,8 @@ async def start():
     hw.display.rect(0, 42, 84, 6, 0, True)
     hw.font_default.text_centered("Press C to start", 42)
     hw.display.show()
+
+    hw.buttons.on_press(hw.BTN_A, exit_to_menu)
 
     hw.buttons.reset_state()
     while True:

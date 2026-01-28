@@ -1,7 +1,6 @@
-import uasyncio as asyncio
 import hardware as hw
+from hardware import asyncio, framebuf
 import random
-from framebuf import FrameBuffer, MONO_HLSB
 
 __long_name__ = "Flappy Bird"
 
@@ -14,7 +13,7 @@ bird_size = 6
 bird_data = bytearray([
     0x0C, 0x12, 0xC5, 0x22, 0x54, 0x44, 0x38, 0x28
 ])
-bird_fbuf = FrameBuffer(bird_data, 8, 8, MONO_HLSB)
+bird_fbuf = framebuf.FrameBuffer(bird_data, 8, 8, framebuf.MONO_HLSB)
 
 def random_int(min_val, max_val):
     span = max_val - min_val + 1
@@ -49,8 +48,6 @@ def cheat():
 
 async def start():
     global isGameRunning, isGameOver, score, bird_vel, bird_size
-    
-    hw.buttons.on_press(hw.BTN_A, exit_to_menu)
 
     hw.display.fill(0)
     hw.font_default.text_centered("MonkeSoft presents:", 0)
@@ -65,6 +62,8 @@ async def start():
     hw.display.rect(0, 42, 84, 6, 0, True)
     hw.font_default.text_centered("Press C to start", 42)
     hw.display.show()
+
+    hw.buttons.on_press(hw.BTN_A, exit_to_menu)
 
     hw.buttons.reset_state()
     while True:

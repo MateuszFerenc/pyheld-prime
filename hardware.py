@@ -1,14 +1,30 @@
-from pcd8544_fb import PCD8544_FB
-import uasyncio as asyncio
-from machine import Pin, SPI, I2C, PWM, ADC, freq
-from ezFBfont import ezFBfont as font
-import ezFBfont_4x6_ascii_06 
-# import ezFBfont_6x12_ascii_10
 from gc import collect as gcCollect, mem_free as gcMem_free, mem_alloc as gcMem_alloc # type: ignore
+print("import gc RAM left: %s" % gcMem_free())
+
+from pcd8544_fb import PCD8544_FB
+print("import pcd8544_fb RAM left: %s" % gcMem_free())
+
+import uasyncio as asyncio
+print("import uasyncio RAM left: %s" % gcMem_free())
+
+from machine import Pin, SPI, I2C, PWM, ADC, freq
+print("import machine RAM left: %s" % gcMem_free())
+
+from ezFBfont import ezFBfont as font
+print("import ezFBfont RAM left: %s" % gcMem_free())
+
+import ezFBfont_4x6_ascii_06 
+print("import ezFBfont_4x6_ascii_06 RAM left: %s" % gcMem_free())
+
 import os
+print("import os RAM left: %s" % gcMem_free())
+
 from sys import modules as sysModules
+print("import sys RAM left: %s" % gcMem_free())
+
 import framebuf
-# import sdcard # type: ignore
+print("import framebuf RAM left: %s" % gcMem_free())
+
 
 __version__ = "v1.0.3"
 
@@ -118,7 +134,11 @@ class DisplayOverride(PCD8544_FB):
                         line = f.readline()
                     dims = line.split()
                 else:
-                    dims = f.readline().split()
+                    line = f.readline()
+                    if line.startswith(b'#'):
+                        while line.startswith(b'#'):
+                            line = f.readline()
+                    dims = line.split()
                 
                 width = int(dims[0])
                 height = int(dims[1])
@@ -136,10 +156,12 @@ class FontOverride(font):
     def text_centered(self, text: str, y: int, color_fg: int = 1, color_bg: int = 0):
         size_x, _ = self.size(text)
         x = (self._device.width // 2) - (size_x // 2)
+        if x < 0:
+            self.multiline_text(text, 0, y, color_fg, color_bg, centered=True)
         x = max(0, x)
         self.write(text, x, y, color_fg, color_bg)
 
-    def multiline_text(self, text: str, x: int, y: int, color: int = 1):
+    def multiline_text(self, text: str, x: int, y: int, color_fg: int = 1, color_bg: int = 0, centered: bool = False):
         words = text.split(' ')
         current_line = ""
         current_y = y
@@ -149,7 +171,10 @@ class FontOverride(font):
             w, h = self.size(test_line)
             
             if x + w > self._device.width:
-                self.write(current_line, x, current_y, color)
+                if centered:
+                    self.text_centered(current_line, current_y, color_fg, color_bg)
+                else:
+                    self.write(current_line, x, current_y, color_fg, color_bg)
                 current_line = word + " "
                 current_y += self._font.height() + 2
                 
@@ -160,7 +185,10 @@ class FontOverride(font):
                 current_line = test_line
         
         if current_line:
-            self.write(current_line, x, current_y, color)
+            if centered:
+                self.text_centered(current_line, current_y, color_fg, color_bg)
+            else:
+                self.write(current_line, x, current_y, color_fg, color_bg)
 
 
 class ButtonEvents:

@@ -20,12 +20,19 @@ async def main_menu():
     games = []
     for game in hw.os.listdir('/'):
         if game[:2] == "G_":
-            module = __import__(game.split('.')[0])
-            games.append((getattr(module, '__long_name__'), game.split('.')[0]))
+            try:
+                module = __import__(game.split('.')[0])
+                games.append((getattr(module, '__long_name__'), game.split('.')[0]))
 
-            del module
-            if games[-1][1] in hw.sysModules:
-                del hw.sysModules[games[-1][1]]
+            except Exception as e:
+                print("Unexpected game name loading error:")
+                print(e)
+            
+            else:
+                del module
+                if games[-1][1] in hw.sysModules:
+                    del hw.sysModules[games[-1][1]]
+
             hw.gcCollect()
 
 
