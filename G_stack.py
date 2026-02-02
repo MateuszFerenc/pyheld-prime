@@ -3,22 +3,21 @@ from hardware import asyncio, framebuf
 
 __long_name__ = "Stack attack"
 
-def exit_to_menu():
-    global isGameRunning, isGameOver
-    isGameRunning = True
-    isGameOver = True
+# def exit_to_menu():
+#     global isGameRunning, isGameOver
+#     isGameRunning = True
+#     isGameOver = True
 
-def restart_game():
-    global isGameOver
-    isGameOver = False
+# def restart_game():
+#     global isGameOver
+#     isGameOver = False
 
 async def start():
+    difficultyLevel = 0
+    showStart = 0
     
     hw.display.fill(0)
-    # hw.font_default.text_centered("Siemens Mobile game", 0)
-    # hw.font_default.text_centered("remade by MonkeSoft:", 6)
-    hw.font_default.text_centered("Siemens Mobile game remade by MonkeSoft:", 0)
-    # text_centered multiline buggy
+    hw.font_default.text_centered("Siemens Mobile game remade by FerencSoft:", 0)
     hw.font_default.text_centered(__long_name__, 20)
     hw.font_default.write("RAM Free: %skB" % round(hw.gcMem_free() / 1024, 2), 0, 42)
     hw.display.show()
@@ -26,17 +25,31 @@ async def start():
     await asyncio.sleep(2)
 
     hw.display.load_pbm("sa_w.pbm")
-    hw.display.rect(0, 42, 84, 6, 0, True)
-    hw.font_default.text_centered("Press C to start", 42)
     hw.display.show()
 
-    hw.buttons.on_press(hw.BTN_A, exit_to_menu)
+    # hw.buttons.on_press(hw.BTN_A, exit_to_menu)
 
     hw.buttons.reset_state()
     while True:
         if hw.buttons.was_pressed(hw.BTN_C):
             break
-        await asyncio.sleep_ms(100) # type: ignore
+        if hw.buttons.was_pressed(hw.BTN_UP):
+            if difficultyLevel < 3:
+                difficultyLevel += 1
+        if hw.buttons.was_pressed(hw.BTN_DOWN):
+            if difficultyLevel > 0:
+                difficultyLevel -= 1
+        if showStart == 0:
+            hw.display.rect(0, 42, 84, 6, 0, True)
+            hw.font_default.text_centered("Press C to start", 42)
+        if showStart == 8:
+            hw.display.rect(0, 42, 84, 6, 0, True)
+            hw.font_default.text_centered("Difficulty: %s" % ("EASY" if difficultyLevel == 0 else "MEDIUM" if difficultyLevel == 1 else "HARD"), 42)
+        showStart += 1
+        if showStart == 12:
+            showStart = 0
+        hw.display.show()
+        await asyncio.sleep_ms(150) # type: ignore
 
     # master_loop = True
     # while master_loop:

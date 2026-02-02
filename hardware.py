@@ -158,8 +158,9 @@ class FontOverride(font):
         x = (self._device.width // 2) - (size_x // 2)
         if x < 0:
             self.multiline_text(text, 0, y, color_fg, color_bg, centered=True)
-        x = max(0, x)
-        self.write(text, x, y, color_fg, color_bg)
+        else:
+            x = max(0, x)
+            self.write(text, x, y, color_fg, color_bg)
 
     def multiline_text(self, text: str, x: int, y: int, color_fg: int = 1, color_bg: int = 0, centered: bool = False):
         words = text.split(' ')

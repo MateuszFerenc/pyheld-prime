@@ -6,24 +6,23 @@ __long_name__ = "Snake"
 
 isGameRunning = False
 isGameOver = False
-score = 0
 direction = (1, 0)
 cheatMode = False
 
-def random_int(min_val, max_val):
+def randomInt(min_val, max_val):
     span = max_val - min_val + 1
     return min_val + (random.getrandbits(10) % span)
 
-def exit_to_menu():
+def exitToMenu():
     global isGameRunning, isGameOver
     isGameRunning = True
     isGameOver = True
 
-def restart_game():
+def restartGame():
     global isGameOver
     isGameOver = False
 
-def change_dir(new_dir):
+def changeDir(new_dir):
     global direction
     if (new_dir[0] * -1 != direction[0]) or (new_dir[1] * -1 != direction[1]):
         direction = new_dir
@@ -39,43 +38,59 @@ def cheat():
     hw.display.show()
 
 async def start():
-    global isGameRunning, isGameOver, score, direction
+    global isGameRunning, isGameOver, direction
+
+    difficultyLevel = 0
+    showStart = 0
+    masterLoop = True
 
     hw.display.fill(0)
-    hw.font_default.text_centered("MonkeSoft presents:", 0)
+    hw.font_default.text_centered("FerencSoft presents:", 0)
     hw.font_default.text_centered(__long_name__, 10)
     hw.font_default.write("RAM Free: %skB" % round(hw.gcMem_free() / 1024, 2), 0, 42)
     hw.display.show()
 
     await asyncio.sleep(2)
 
-    hw.display.rect(0, 42, 84, 6, 0, True)
-    hw.font_default.text_centered("Press C to start", 42)
-    hw.display.show()
-
-    hw.buttons.on_press(hw.BTN_A, exit_to_menu)
-
+    hw.buttons.on_press(hw.BTN_A, exitToMenu)
     hw.buttons.reset_state()
     while True:
         if hw.buttons.was_pressed(hw.BTN_C):
             break
-        await asyncio.sleep_ms(100) # type: ignore
+        if hw.buttons.was_pressed(hw.BTN_UP):
+            if difficultyLevel < 3:
+                difficultyLevel += 1
+        if hw.buttons.was_pressed(hw.BTN_DOWN):
+            if difficultyLevel > 0:
+                difficultyLevel -= 1
+        if showStart == 0:
+            hw.display.rect(0, 42, 84, 6, 0, True)
+            hw.font_default.text_centered("Press C to start", 42)
+        elif showStart == 8:
+            hw.display.rect(0, 42, 84, 6, 0, True)
+            hw.font_default.text_centered("Difficulty: %s" % ("EASY" if difficultyLevel == 0 else "MEDIUM" if difficultyLevel == 1 else "HARD"), 42)
+        showStart += 1
+        if showStart == 12:
+            showStart = 0
+        hw.display.show()
+        await asyncio.sleep_ms(150) # type: ignore
 
-    master_loop = True
-    while master_loop:
+    if isGameRunning and isGameOver:
+        masterLoop = False
+
+    while masterLoop:
         isGameRunning = True
         isGameOver = False
         score = 0
         direction = (1, 0)
         snake = [(5, 5), (4, 5), (3, 5)]
-        food = (random_int(6, 19), random_int(3, 10))
-        score_width, score_height = 32, 6 # height=6 fixed because of font height
+        food = (randomInt(6, 19), randomInt(3, 10))
+        scoreWidth, scoreWeight = 32, 6 # height=6 fixed because of font height
         
-        hw.buttons.on_press(hw.BTN_UP,    lambda: change_dir((0, -1)))
-        hw.buttons.on_press(hw.BTN_DOWN,  lambda: change_dir((0, 1)))
-        hw.buttons.on_press(hw.BTN_LEFT,  lambda: change_dir((-1, 0)))
-        hw.buttons.on_press(hw.BTN_RIGHT, lambda: change_dir((1, 0)))
-        hw.buttons.on_press(hw.BTN_A,     exit_to_menu)
+        hw.buttons.on_press(hw.BTN_UP,    lambda: changeDir((0, -1)))
+        hw.buttons.on_press(hw.BTN_DOWN,  lambda: changeDir((0, 1)))
+        hw.buttons.on_press(hw.BTN_LEFT,  lambda: changeDir((-1, 0)))
+        hw.buttons.on_press(hw.BTN_RIGHT, lambda: changeDir((1, 0)))
         hw.buttons.on_combo(hw.BTN_A | hw.BTN_B, cheat)
 
         hw.play_sound(hw.SND_START, interrupt=True)
@@ -93,11 +108,16 @@ async def start():
                 snake.insert(0, new_head)
                 
                 if new_head == food:    # zjedzono jabłko
-                    score += 1
+                    if difficultyLevel == 1 and not cheatMode:
+                        score += 2
+                    elif difficultyLevel == 2 and not cheatMode:
+                        score += 3
+                    else:
+                        score += 1
                     hw.play_sound([(1500, 30)])
                     while True:     # losowanie nowego jabłka poza wężem 
-                        food = (random_int(0, 20), random_int(0, 11)) # a także poza obszarem wyniku
-                        if food not in snake and ((food[0]*4 > (score_width + 2)) or (food[1]*4 > (score_height + 2))): 
+                        food = (randomInt(0, 20), randomInt(0, 11)) # a także poza obszarem wyniku
+                        if food not in snake and ((food[0]*4 > (scoreWidth + 2)) or (food[1]*4 > (scoreWeight + 2))): 
                             break
                 else:
                     snake.pop()
@@ -111,13 +131,13 @@ async def start():
                 hw.display.ellipse(segment[0] * 4 + 2, segment[1] * 4 + 2, 2, 2, 1, i != 0)
                 # hw.display.fill_rect(segment[0]*4, segment[1]*4, 4, 4, 1)
             
-            score_text = "Score: %s" %score
+            score_text = "Score: %s" % score
             hw.font_default.write(score_text, 0, 0)
-            score_width = len(score_text)*4
+            scoreWidth = len(score_text)*4
             hw.display.show()
 
             if not cheatMode:
-                delay = max(40, 150 - (score * 5))
+                delay = max(30, 150 - (score * (4 if difficultyLevel == 0 else 5 if difficultyLevel == 1 else 6)))
             else:
                 delay = 150
         
@@ -127,30 +147,33 @@ async def start():
 
             await asyncio.sleep_ms(delay) # type: ignore
 
-        if not isGameRunning and master_loop:
+        if not isGameRunning and masterLoop:
             isGameOver = True
             hw.play_sound(hw.SND_DIE, interrupt=True)
             
-            hw.buttons.on_press(hw.BTN_C, restart_game)
-            hw.buttons.on_press(hw.BTN_A, exit_to_menu)
+            hw.buttons.on_press(hw.BTN_C, restartGame)
 
             hw.display.fill(0)
-            hw.font_default.text_centered("GAME OVER", 5)
-            hw.font_default.write("Score: %s" % score, 5, 18)
+            hw.font_default.write("%s score: %s" % (("EASY" if difficultyLevel == 0 else "MEDIUM" if difficultyLevel == 1 else "HARD"), score), 5, 18)
             hw.font_default.text_centered("C-Play again A-Exit", 35)
             hw.display.show()
-            inverted = True
+            inverted = 0
 
-            while isGameOver:
-                await asyncio.sleep_ms(500) # type: ignore
-                
-                hw.font_default.text_centered("GAME OVER", 5, inverted, not inverted)
-                inverted = not inverted
+            while isGameOver: 
+                if inverted == 0:
+                    hw.font_default.text_centered("GAME OVER", 5, 1, 0)
+                elif inverted == 4:
+                    hw.font_default.text_centered("GAME OVER", 5, 0, 1)
+                inverted += 1
+                if inverted == 8:
+                    inverted = 0
                 hw.display.show()
 
                 if isGameRunning and isGameOver:
-                    master_loop = False
+                    masterLoop = False
                     break
+
+                await asyncio.sleep_ms(150) # type: ignore
 
     hw.buttons.clear_callbacks()
 
