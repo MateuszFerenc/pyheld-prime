@@ -1,6 +1,7 @@
 import os
 import subprocess
 from pathlib import Path
+import argparse
 
 SOURCE_DIR = "."
 BUILD_DIR = "build"
@@ -15,7 +16,7 @@ def run_command(cmd):
         print(f"Błąd podczas wykonywania: {cmd}\n{e.stderr}")
         return None
 
-def compile_and_deploy():
+def compile_and_deploy(update_local: bool = False):
     if not os.path.exists(BUILD_DIR):
         os.makedirs(BUILD_DIR)
 
@@ -27,7 +28,7 @@ def compile_and_deploy():
         if filename in EXCLUDE_FILES:
             continue
 
-        target_file = Path(BUILD_DIR) / filename
+        target_file = Path(os.path.join(BUILD_DIR, filename))
         
         if filename not in KEEP_AS_PY:
             target_file = target_file.with_suffix(".mpy")
@@ -35,17 +36,21 @@ def compile_and_deploy():
             if not target_file.exists() or path.stat().st_mtime > target_file.stat().st_mtime:
                 print(f"Kompilowanie: {filename} -> {target_file.name}")
                 run_command(f"mpy-cross {path} -o {target_file}")
+                if update_local:
+                    files_to_upload.append(target_file)
             else:
                 print(f"Aktualny: {target_file.name}")
         else:
             if not target_file.exists() or path.stat().st_mtime > target_file.stat().st_mtime:
                 print(f"Przygotowanie: {filename}")
-                with open(path, 'rb') as src, open(target_file, 'wb') as dst:
-                    dst.write(src.read())
+                run_command(f"cp {path} {target_file}")
+                # with open(path, 'rb') as src, open(target_file, 'wb') as dst:
+                #     dst.write(src.read())
             else:
                 print(f"Aktualny: {target_file.name}")
 
-        files_to_upload.append(target_file)
+        if not update_local:
+            files_to_upload.append(target_file)
 
     print("\n--- Przesyłanie ---")
     for f in files_to_upload:
@@ -56,4 +61,7 @@ def compile_and_deploy():
     run_command("mpremote reset")
 
 if __name__ == "__main__":
-    compile_and_deploy()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-o", "--only_new_local", help="Move only files updated locally", action="store_true")
+    args = parser.parse_args()
+    compile_and_deploy(args.only_new_local)

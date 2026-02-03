@@ -23,8 +23,9 @@ async def start():
     showStart = 0
     masterLoop = True
     paddleLength = 10
+    paddleHalfLength = paddleLength // 2
     paddleWidth = 5
-    paddlePosDelta = 5
+    paddlePosDelta = 4
 
     hw.display.fill(0)
     hw.font_default.text_centered("FerencSoft presents:", 0)
@@ -63,6 +64,8 @@ async def start():
         hw.display.show()
         await asyncio.sleep_ms(150) # type: ignore
 
+    hw.buttons.reset_state()
+
     if isGameRunning and isGameOver:
         masterLoop = False
     
@@ -70,10 +73,10 @@ async def start():
         isGameRunning = True
         isGameOver = False
 
-        paddleA_pos = int(hw.display.height / 2 - paddleLength)
+        paddleA_pos = hw.display.height // 2 - paddleHalfLength
         paddleB_pos = paddleA_pos
-        ballPos = ((hw.display.width / 2, hw.display.height / 2))
-        ballVel = (0.0, 0.0)
+        ballPos = [hw.display.width / 2, hw.display.height / 2]
+        ballVel = [0.0, 0.0]
         ballAccel = 0.5
         scoreA = 0
         scoreB = 0
@@ -90,25 +93,43 @@ async def start():
 
             hw.display.ellipse(int(ballPos[0]), int(ballPos[1]), 2, 2, 1)
 
+            # test ball
+            hw.display.rect(int(ballPos[0]) - 2, abs(paddleA_pos + paddleHalfLength - int(ballPos[1])) - 2, 5, 5, 1)
+
             hw.font_default.text_centered("A: %s   B: %s" % (scoreA, scoreB), 0)
 
             hw.display.show()
 
             if pvpMode:
-                if ~hw.buttons.last_state & hw.BTN_UP:
-                    if (paddleA_pos - paddlePosDelta) > 0:
-                        paddleA_pos -= paddlePosDelta
-                if ~hw.buttons.last_state & hw.BTN_DOWN:
-                    if paddleA_pos < (hw.display.height - paddleLength + paddlePosDelta):
-                        paddleA_pos += paddlePosDelta
+                if hw.buttons.is_pressed(hw.BTN_UP):
+                    print(f"ballPosDelta: {paddleLength + paddleA_pos - int( ballPos[1])}, paddleA_pos: {paddleA_pos}")
+                    paddleA_pos -= paddlePosDelta
+                    if paddleA_pos < 0:
+                        paddleA_pos = 0
+                    # if (paddleA_pos - paddlePosDelta) >= 0:
+                    #     paddleA_pos -= paddlePosDelta
+                if hw.buttons.is_pressed(hw.BTN_DOWN):
+                    print(f"ballPosDelta: {paddleLength + paddleA_pos - int(ballPos[1])}, paddleA_pos: {paddleA_pos}")
+                    paddleA_pos += paddlePosDelta
+                    if paddleA_pos > (48 - paddleLength):
+                        paddleA_pos = 48 - paddleLength
+                    # if (paddleA_pos - paddlePosDelta) <= (hw.display.height - paddleLength):
+                    #     paddleA_pos += min(48 - paddleA_pos, paddlePosDelta)
             else:   # computer move
-                pass
-            if ~hw.buttons.last_state & hw.BTN_A:
-                if (paddleB_pos - paddlePosDelta) > 0:
-                    paddleB_pos -= paddlePosDelta
-            if ~hw.buttons.last_state & hw.BTN_C:
-                if paddleB_pos < (hw.display.height - paddleLength - paddlePosDelta):
-                    paddleB_pos += paddlePosDelta
+                ballPosDelta = paddleLength + paddleA_pos - ballPos[1]
+                paddleA_pos += int(ballPosDelta)
+            if hw.buttons.is_pressed(hw.BTN_A):
+                # if (paddleB_pos - paddlePosDelta) >= 0:
+                paddleB_pos -= paddlePosDelta
+                if paddleB_pos < 0:
+                    paddleB_pos = 0
+            if hw.buttons.is_pressed(hw.BTN_C):
+                paddleB_pos += paddlePosDelta
+                if paddleB_pos > (48 - paddleLength):
+                    paddleB_pos = 48 - paddleLength
+                # if (paddleB_pos - paddlePosDelta) < (hw.display.height - paddleLength):
+                #     paddleB_pos += min(48 - paddleB_pos, paddlePosDelta)
+                #     ballPos[1] += paddlePosDelta
 
             if abs(scoreA - scoreB) == 0 and scoreA != scoreB:
                 isGameRunning = False

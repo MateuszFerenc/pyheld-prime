@@ -248,12 +248,12 @@ class ButtonEvents:
             return True
         return False
     
+    def is_pressed(self, btn_bit):
+        return True if ~self.last_state & btn_bit else False
+    
     def reset_state(self):
         self.pressed_mask = 0x00
-        try:
-            self.last_state = self.i2c.readfrom(self.address, 1)[0]
-        except:
-            pass
+        self.last_state = 0xFF
     
 BTN_UP = 1 << 7
 BTN_DOWN = 1 << 6
