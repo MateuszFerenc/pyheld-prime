@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "dw01a")(type "KiCad")(uri "C:/Users/mateo/Desktop/Projects/pyheld/hardware/external_symbols/dw01a.kicad_sym")(options "")(descr ""))
+  (lib (name "additional_symbols")(type "KiCad")(uri "${KIPRJMOD}/additional_symbols.kicad_sym")(options "")(descr ""))
+)

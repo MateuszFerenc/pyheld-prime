@@ -428,6 +428,14 @@
     [
       "fc3c54fb-6d1c-4231-9293-8fcb9c0b9706",
       "Root"
+    ],
+    [
+      "b1f9fade-b7ed-42bb-82ec-b3a822ff35a4",
+      "Power section"
+    ],
+    [
+      "4d35df8b-f9a9-4663-8ccd-4f07537e2734",
+      "Human Machine Interface Section"
     ]
   ],
   "text_variables": {}
