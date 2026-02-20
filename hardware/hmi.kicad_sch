@@ -4321,7 +4321,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1206_3216Metric"
+		(property "Footprint" "Diode_SMD:D_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
 			(at 140.97 153.67 0)
 			(effects
 				(font
@@ -4915,7 +4915,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4b9f99b3-4051-4228-95f4-1b39066c0458")
-		(property "Reference" "C12"
+		(property "Reference" "C13"
 			(at 58.4835 49.8475 0)
 			(effects
 				(font
@@ -4966,7 +4966,7 @@
 		(instances
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/4d35df8b-f9a9-4663-8ccd-4f07537e2734"
-					(reference "C12")
+					(reference "C13")
 					(unit 1)
 				)
 			)

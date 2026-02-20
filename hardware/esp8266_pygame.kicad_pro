@@ -230,6 +230,10 @@
   "erc": {
     "erc_exclusions": [
       [
+        "multiple_net_names|901700|1244600|57a6602c-c88c-47ea-b948-f0769701e52f|0520a0bd-797f-4e61-bc13-784297e8ba36|/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/b1f9fade-b7ed-42bb-82ec-b3a822ff35a4|/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/b1f9fade-b7ed-42bb-82ec-b3a822ff35a4|/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/b1f9fade-b7ed-42bb-82ec-b3a822ff35a4",
+        ""
+      ],
+      [
         "multiple_net_names|901700|1244600|5cba56dc-ee70-4f4b-b950-29769bc7647f|0520a0bd-797f-4e61-bc13-784297e8ba36|/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/b1f9fade-b7ed-42bb-82ec-b3a822ff35a4|/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/b1f9fade-b7ed-42bb-82ec-b3a822ff35a4|/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/b1f9fade-b7ed-42bb-82ec-b3a822ff35a4",
         ""
       ],
