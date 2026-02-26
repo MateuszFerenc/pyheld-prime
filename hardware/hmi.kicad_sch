@@ -130,293 +130,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Connector_Generic:Conn_01x07"
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 0 10.16 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Conn_01x07"
-				(at 0 -10.16 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Generic connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "connector"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Connector*:*_1x??_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Conn_01x07_1_1"
-				(rectangle
-					(start -1.27 8.89)
-					(end 1.27 -8.89)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(rectangle
-					(start -1.27 7.747)
-					(end 0 7.493)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 5.207)
-					(end 0 4.953)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 2.667)
-					(end 0 2.413)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 0.127)
-					(end 0 -0.127)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -2.413)
-					(end 0 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -4.953)
-					(end 0 -5.207)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -7.493)
-					(end 0 -7.747)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 7.62 0)
-					(length 3.81)
-					(name "Pin_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 5.08 0)
-					(length 3.81)
-					(name "Pin_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 2.54 0)
-					(length 3.81)
-					(name "Pin_3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 3.81)
-					(name "Pin_4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 3.81)
-					(name "Pin_5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -5.08 0)
-					(length 3.81)
-					(name "Pin_6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -7.62 0)
-					(length 3.81)
-					(name "Pin_7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Connector_Generic:Conn_01x08"
 			(pin_names
 				(offset 1.016)
@@ -3218,6 +2931,26 @@
 	)
 	(wire
 		(pts
+			(xy 101.6 124.46) (xy 105.41 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8dacd5ad-a58a-4bcb-9921-dea1d5e62db1")
+	)
+	(wire
+		(pts
+			(xy 101.6 130.81) (xy 101.6 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "905819e5-1462-44a6-bf77-8b963d634615")
+	)
+	(wire
+		(pts
 			(xy 226.06 130.81) (xy 226.06 135.89)
 		)
 		(stroke
@@ -3285,6 +3018,16 @@
 			(type default)
 		)
 		(uuid "a5ce32ff-ba18-4bf7-a6c6-d0c1350c6592")
+	)
+	(wire
+		(pts
+			(xy 137.16 124.46) (xy 140.97 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a5ec6cc2-427a-43ab-a9a3-376c071b14ea")
 	)
 	(wire
 		(pts
@@ -3866,6 +3609,16 @@
 		)
 		(uuid "4393b1f7-446b-417a-91ed-773c1f012f1b")
 	)
+	(label "BTN_GND"
+		(at 267.97 148.59 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4ae7fae7-1cc2-4c17-9bbb-8422ba275ffd")
+	)
 	(label "Right_Button_CONN"
 		(at 78.74 156.21 0)
 		(effects
@@ -4055,6 +3808,16 @@
 			(justify right bottom)
 		)
 		(uuid "d099b33e-f6a7-465b-9369-d004d7ded1f2")
+	)
+	(label "BTN_GND"
+		(at 140.97 124.46 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d0b7064a-1367-4a54-8ae9-da9775945bca")
 	)
 	(label "Left_Button"
 		(at 224.79 116.84 180)
@@ -4537,7 +4300,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "33ed08b0-95e2-4679-ae6f-7854021bfa21")
-		(property "Reference" "#PWR058"
+		(property "Reference" "#PWR059"
 			(at 204.47 72.39 0)
 			(effects
 				(font
@@ -4587,7 +4350,7 @@
 		(instances
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/4d35df8b-f9a9-4663-8ccd-4f07537e2734"
-					(reference "#PWR058")
+					(reference "#PWR059")
 					(unit 1)
 				)
 			)
@@ -4655,6 +4418,94 @@
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/4d35df8b-f9a9-4663-8ccd-4f07537e2734"
 					(reference "#PWR052")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x08")
+		(at 132.08 114.3 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "40964817-523d-4935-b013-e6c97c4e2993")
+		(property "Reference" "J5"
+			(at 137.414 100.584 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_01x08"
+			(at 137.414 103.124 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical"
+			(at 132.08 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 132.08 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 132.08 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "94a21ad7-2062-4ebc-8aa8-de0f11fbbe66")
+		)
+		(pin "5"
+			(uuid "245e8ef1-00f0-4556-8c73-35297275e015")
+		)
+		(pin "4"
+			(uuid "04abafad-1c9e-48c2-ae50-9e4be4da5e2b")
+		)
+		(pin "6"
+			(uuid "6ff311de-d691-4954-9fe3-6c71996d59a5")
+		)
+		(pin "1"
+			(uuid "e170c4dc-5061-43dc-8d14-691334b8c101")
+		)
+		(pin "7"
+			(uuid "a776ca6f-aa34-48cf-bf6e-50f8f412a1a8")
+		)
+		(pin "8"
+			(uuid "d4bae0b5-f1bb-4c3c-a3e4-74c63e66952c")
+		)
+		(pin "2"
+			(uuid "f0bde3da-09ec-425b-883b-8e5969558da7")
+		)
+		(instances
+			(project "esp8266_pygame"
+				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/4d35df8b-f9a9-4663-8ccd-4f07537e2734"
+					(reference "J5")
 					(unit 1)
 				)
 			)
@@ -4850,7 +4701,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "47863fd0-305b-47b0-80f7-0ce4ced0768e")
-		(property "Reference" "#PWR057"
+		(property "Reference" "#PWR058"
 			(at 152.4 167.64 0)
 			(effects
 				(font
@@ -4900,7 +4751,7 @@
 		(instances
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/4d35df8b-f9a9-4663-8ccd-4f07537e2734"
-					(reference "#PWR057")
+					(reference "#PWR058")
 					(unit 1)
 				)
 			)
@@ -5243,6 +5094,73 @@
 		)
 	)
 	(symbol
+		(lib_name "GND_1")
+		(lib_id "power:GND")
+		(at 101.6 130.81 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "69586d6f-1dbf-49ec-81c1-29743ea5622e")
+		(property "Reference" "#PWR055"
+			(at 101.6 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 101.6 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 101.6 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 101.6 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 101.6 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "95e3076f-c17b-4744-9a89-a2df28cf331c")
+		)
+		(instances
+			(project "esp8266_pygame"
+				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/4d35df8b-f9a9-4663-8ccd-4f07537e2734"
+					(reference "#PWR055")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Switch:SW_Push")
 		(at 198.12 130.81 0)
 		(unit 1)
@@ -5304,73 +5222,6 @@
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/4d35df8b-f9a9-4663-8ccd-4f07537e2734"
 					(reference "SW2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_name "GND_1")
-		(lib_id "power:GND")
-		(at 267.97 148.59 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "756c938f-f53e-4e15-8339-7c8be897f458")
-		(property "Reference" "#PWR061"
-			(at 267.97 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 267.97 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 267.97 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 267.97 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 267.97 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "16d04314-6d3a-4e21-95e2-2817bc8c296a")
-		)
-		(instances
-			(project "esp8266_pygame"
-				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/4d35df8b-f9a9-4663-8ccd-4f07537e2734"
-					(reference "#PWR061")
 					(unit 1)
 				)
 			)
@@ -5448,34 +5299,34 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x07")
-		(at 132.08 114.3 0)
-		(mirror y)
+		(lib_id "Connector_Generic:Conn_01x08")
+		(at 110.49 114.3 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8c303120-be4f-4341-83da-f65f4404a299")
-		(property "Reference" "J5"
-			(at 132.08 100.33 0)
+		(uuid "82264eae-f5c6-4473-bcab-2e08a6fe2fe9")
+		(property "Reference" "J4"
+			(at 104.648 100.584 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "Conn_01x07"
-			(at 132.08 102.87 0)
+		(property "Value" "Conn_01x08"
+			(at 104.648 103.124 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical"
-			(at 132.08 114.3 0)
+		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical"
+			(at 110.49 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5484,7 +5335,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 132.08 114.3 0)
+			(at 110.49 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5492,40 +5343,43 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 132.08 114.3 0)
+		(property "Description" "Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 110.49 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
-		)
-		(pin "4"
-			(uuid "e1320ac4-d3dc-4794-b205-464102a5f7cc")
-		)
-		(pin "7"
-			(uuid "5088e838-9b25-4f48-b82d-4d4566827436")
-		)
-		(pin "5"
-			(uuid "04f95a5f-af3c-4910-afdb-046781217dbe")
 		)
 		(pin "3"
-			(uuid "2a13400b-cd9f-4f8b-a5c1-1fb683c8e0f7")
+			(uuid "9dba6102-f478-4029-a995-3abdaa65310d")
 		)
-		(pin "2"
-			(uuid "a6e2d886-004f-476c-b1bc-d3c2a815a0c0")
+		(pin "5"
+			(uuid "291b8bad-f3d9-492a-9c7d-2b5a9f07355e")
+		)
+		(pin "4"
+			(uuid "4d466b4f-9558-425d-87f3-ea5f084a5027")
 		)
 		(pin "6"
-			(uuid "95be3dfd-77b6-4202-8da3-5000c3778ae0")
+			(uuid "cffa638b-5863-43e3-a408-0e5340f99693")
 		)
 		(pin "1"
-			(uuid "6fc76ee9-ad18-4e4b-9ef0-7fb3bc83d31e")
+			(uuid "295e01b9-aea5-4bab-9ffe-d965b194c777")
+		)
+		(pin "7"
+			(uuid "16afa96d-1354-4fde-88bb-0917a31aaead")
+		)
+		(pin "8"
+			(uuid "48b48288-e4f6-482d-ab3b-5248371c9bfb")
+		)
+		(pin "2"
+			(uuid "943d3be6-bd13-4ffa-ae8e-797cc51c4a23")
 		)
 		(instances
 			(project ""
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/4d35df8b-f9a9-4663-8ccd-4f07537e2734"
-					(reference "J5")
+					(reference "J4")
 					(unit 1)
 				)
 			)
@@ -5640,7 +5494,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "924b764b-a902-4b91-b8cb-166f4e2daf8d")
-		(property "Reference" "#PWR059"
+		(property "Reference" "#PWR060"
 			(at 241.3 78.74 0)
 			(effects
 				(font
@@ -5690,7 +5544,7 @@
 		(instances
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/4d35df8b-f9a9-4663-8ccd-4f07537e2734"
-					(reference "#PWR059")
+					(reference "#PWR060")
 					(unit 1)
 				)
 			)
@@ -5942,7 +5796,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b2d6e6d5-4e09-40ea-b46f-61e677c370fd")
-		(property "Reference" "#PWR055"
+		(property "Reference" "#PWR056"
 			(at 142.24 40.64 0)
 			(effects
 				(font
@@ -5992,7 +5846,7 @@
 		(instances
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/4d35df8b-f9a9-4663-8ccd-4f07537e2734"
-					(reference "#PWR055")
+					(reference "#PWR056")
 					(unit 1)
 				)
 			)
@@ -6009,7 +5863,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b601917a-0a1d-4392-8070-593ca8830f22")
-		(property "Reference" "#PWR056"
+		(property "Reference" "#PWR057"
 			(at 142.24 72.39 0)
 			(effects
 				(font
@@ -6059,7 +5913,7 @@
 		(instances
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/4d35df8b-f9a9-4663-8ccd-4f07537e2734"
-					(reference "#PWR056")
+					(reference "#PWR057")
 					(unit 1)
 				)
 			)
@@ -6194,89 +6048,6 @@
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/4d35df8b-f9a9-4663-8ccd-4f07537e2734"
 					(reference "SW7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x07")
-		(at 110.49 114.3 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c4fbdb7c-5885-48ac-ba17-a4ac71a8a048")
-		(property "Reference" "J4"
-			(at 110.49 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x07"
-			(at 110.49 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical"
-			(at 110.49 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 110.49 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 110.49 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "4"
-			(uuid "db87478f-e2bf-40b3-a0de-aa883bcd00a4")
-		)
-		(pin "7"
-			(uuid "32e2c402-b5d2-48d9-bf5a-7c54faf62d5c")
-		)
-		(pin "5"
-			(uuid "dce3e6f4-ab71-4420-bbcf-1c654f2767de")
-		)
-		(pin "3"
-			(uuid "cbe2bbbb-592a-4406-80e6-93fcea8f7a39")
-		)
-		(pin "2"
-			(uuid "c53a1aea-9ade-42fe-a0be-62b55d68c8c4")
-		)
-		(pin "6"
-			(uuid "3f26df7a-bdb3-45db-8b52-68c66c83d23f")
-		)
-		(pin "1"
-			(uuid "5a5bf635-0de7-4331-b7d8-93c1bee0370c")
-		)
-		(instances
-			(project "esp8266_pygame"
-				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/4d35df8b-f9a9-4663-8ccd-4f07537e2734"
-					(reference "J4")
 					(unit 1)
 				)
 			)
@@ -6697,7 +6468,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f4886570-5241-4cf0-a5de-a68903c23399")
-		(property "Reference" "#PWR060"
+		(property "Reference" "#PWR061"
 			(at 252.73 31.75 0)
 			(effects
 				(font
@@ -6747,7 +6518,7 @@
 		(instances
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/4d35df8b-f9a9-4663-8ccd-4f07537e2734"
-					(reference "#PWR060")
+					(reference "#PWR061")
 					(unit 1)
 				)
 			)

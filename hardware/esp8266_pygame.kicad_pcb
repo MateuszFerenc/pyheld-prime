@@ -148,6 +148,7 @@
 	(net 68 "unconnected-(U6-TD-Pad4)")
 	(net 69 "unconnected-(U7-NC-Pad4)")
 	(net 70 "unconnected-(U8-~{INT}-Pad13)")
+	(net 71 "/Human Machine Interface Section/BTN_GND")
 	(footprint "Capacitor_SMD:CP_Elec_6.3x3"
 		(layer "F.Cu")
 		(uuid "011919eb-6f56-4440-9678-7441775430c2")
@@ -815,13 +816,13 @@
 	(footprint "Button_Switch_SMD:SW_SPST_TL3342"
 		(layer "F.Cu")
 		(uuid "0995ac2a-9d43-48b4-ab84-35605a1491c5")
-		(at 38.35 159.55)
+		(at 31.981708 184.964765)
 		(descr "Low-profile SMD Tactile Switch, https://www.e-switch.com/system/asset/product_line/data_sheet/165/TL3342.pdf")
 		(tags "SPST Tactile Switch")
 		(property "Reference" "SW7"
 			(at 0 -3.75 0)
 			(layer "F.SilkS")
-			(uuid "05ea3ea0-4a25-432e-b4c5-71990c2cd6f2")
+			(uuid "69934c49-bf8b-4795-b7c2-884c8bea7701")
 			(effects
 				(font
 					(size 1 1)
@@ -832,7 +833,7 @@
 		(property "Value" "SW_Push"
 			(at 0 3.75 0)
 			(layer "F.Fab")
-			(uuid "c397f1f7-a38d-4f9c-8b71-a1a2c8a3ac75")
+			(uuid "827c01f1-2f50-46bc-be3a-b47d5ad3dd5a")
 			(effects
 				(font
 					(size 1 1)
@@ -845,7 +846,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "dcdcb17b-d8c7-4191-a728-429ce1b80c2b")
+			(uuid "64952f53-03f9-4720-98ee-9f9c518cb15d")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -858,7 +859,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "ace1aae9-a52f-4ca7-a31e-c6ea11d3d753")
+			(uuid "72d27e76-3071-4de2-9f9f-9c3817a5499c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1354,7 +1355,7 @@
 			(at -3.15 1.9)
 			(size 1.7 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 6 "GND")
+			(net 71 "/Human Machine Interface Section/BTN_GND")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "cccca8a5-6b41-4f57-92a3-d4fe965a10e5")
@@ -1363,7 +1364,7 @@
 			(at 3.15 1.9)
 			(size 1.7 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 6 "GND")
+			(net 71 "/Human Machine Interface Section/BTN_GND")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "439d9e9c-2b5f-4aaf-8f5c-9bd5a8713929")
@@ -4851,13 +4852,13 @@
 	(footprint "Button_Switch_SMD:SW_SPST_TL3342"
 		(layer "F.Cu")
 		(uuid "297f8c16-5a29-4eb8-a71f-1586e2829781")
-		(at 73.5 146)
+		(at 31.981708 159.46588)
 		(descr "Low-profile SMD Tactile Switch, https://www.e-switch.com/system/asset/product_line/data_sheet/165/TL3342.pdf")
 		(tags "SPST Tactile Switch")
 		(property "Reference" "SW8"
 			(at 0 -3.75 0)
 			(layer "F.SilkS")
-			(uuid "f22aa94f-8ebb-47cd-9f0f-f0847daf546b")
+			(uuid "6ab764cd-516c-4c07-9ab5-9e6a57967d9c")
 			(effects
 				(font
 					(size 1 1)
@@ -4868,7 +4869,7 @@
 		(property "Value" "SW_Push"
 			(at 0 3.75 0)
 			(layer "F.Fab")
-			(uuid "0b9d1653-72db-4b3d-bdbb-1e9fc7a44cb0")
+			(uuid "428b227c-169a-409f-a9df-ab91bf93e2ca")
 			(effects
 				(font
 					(size 1 1)
@@ -4881,7 +4882,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "4227e654-f307-467c-ba8e-ed1f66794557")
+			(uuid "e764af8c-fd89-47fb-92c1-0d099c4d343b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4894,7 +4895,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "14efbb23-ddee-4115-b540-53f1fa996b1e")
+			(uuid "ce49b3da-5193-44da-82c3-2b8eb5188659")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5390,7 +5391,7 @@
 			(at -3.15 1.9)
 			(size 1.7 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 6 "GND")
+			(net 71 "/Human Machine Interface Section/BTN_GND")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "2a1c9dc3-d6f5-4be3-a231-531981e18947")
@@ -5399,7 +5400,7 @@
 			(at 3.15 1.9)
 			(size 1.7 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 6 "GND")
+			(net 71 "/Human Machine Interface Section/BTN_GND")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "52f209b9-9dcf-4ce5-bc7b-19c79bc1f257")
@@ -7690,7 +7691,7 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "4c465bdd-e9cd-4a79-91e5-cb63fa7a7ac7")
-		(at 116 89.5 90)
+		(at 115.772317 85.482014 90)
 		(descr "Through hole straight pin header, 1x08, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x08 2.54mm single row")
 		(property "Reference" "J6"
@@ -9309,13 +9310,13 @@
 	(footprint "Button_Switch_SMD:SW_SPST_TL3342"
 		(layer "F.Cu")
 		(uuid "61a82271-b035-4234-86ed-613319e932bb")
-		(at 38.35 131.35)
+		(at 66.711115 172.238602)
 		(descr "Low-profile SMD Tactile Switch, https://www.e-switch.com/system/asset/product_line/data_sheet/165/TL3342.pdf")
 		(tags "SPST Tactile Switch")
 		(property "Reference" "SW3"
 			(at 0 -3.75 0)
 			(layer "F.SilkS")
-			(uuid "db40f8b8-9485-472b-b5c9-2322006873ea")
+			(uuid "4e90b99e-6e23-4271-9944-b6e0b1e37225")
 			(effects
 				(font
 					(size 1 1)
@@ -9326,7 +9327,7 @@
 		(property "Value" "SW_Push"
 			(at 0 3.75 0)
 			(layer "F.Fab")
-			(uuid "8de24d2f-5d08-4c87-9ab4-079c803c8804")
+			(uuid "3a2dc0af-7317-4f03-9562-8c38f24d4283")
 			(effects
 				(font
 					(size 1 1)
@@ -9339,7 +9340,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "669d9754-c7d0-4023-a95e-e8b9fc2255ba")
+			(uuid "3ceeddd7-5c9f-434c-b13d-1b8bc5f1c807")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9352,7 +9353,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "e1efc1e6-a9c5-4833-b347-d3a1c94bf300")
+			(uuid "2e9e569e-b275-499d-b65f-c92e0c01c3e5")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9848,7 +9849,7 @@
 			(at -3.15 1.9)
 			(size 1.7 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 6 "GND")
+			(net 71 "/Human Machine Interface Section/BTN_GND")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "e4ae3828-1241-4346-b643-b7af67f5dc13")
@@ -9857,7 +9858,7 @@
 			(at 3.15 1.9)
 			(size 1.7 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 6 "GND")
+			(net 71 "/Human Machine Interface Section/BTN_GND")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "3e8fe2ae-226b-4293-83b1-a94368b22b11")
@@ -10475,7 +10476,7 @@
 	(footprint "Package_SO:SOIC-16W_7.5x10.3mm_P1.27mm"
 		(layer "F.Cu")
 		(uuid "6ec4cff2-43b2-4790-944b-0450cc6e436d")
-		(at 96.65 173.675)
+		(at 100.61 137.675)
 		(descr "SOIC, 16 Pin (JEDEC MS-013AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_wide-rw/rw_16.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags "SOIC SO")
 		(property "Reference" "U8"
@@ -10920,13 +10921,13 @@
 	(footprint "Button_Switch_SMD:SW_SPST_TL3342"
 		(layer "F.Cu")
 		(uuid "6f4554ac-31a5-4460-ab79-ef893e3077d5")
-		(at 38.35 124.3)
+		(at 71.925815 159.684695)
 		(descr "Low-profile SMD Tactile Switch, https://www.e-switch.com/system/asset/product_line/data_sheet/165/TL3342.pdf")
 		(tags "SPST Tactile Switch")
 		(property "Reference" "SW2"
 			(at 0 -3.75 0)
 			(layer "F.SilkS")
-			(uuid "cdda94f7-08f6-4079-ba80-0ac0e69929fd")
+			(uuid "9e77ab9d-d614-46c0-883a-949c70111c44")
 			(effects
 				(font
 					(size 1 1)
@@ -10937,7 +10938,7 @@
 		(property "Value" "SW_Push"
 			(at 0 3.75 0)
 			(layer "F.Fab")
-			(uuid "3b380416-5b05-49cf-b279-759f8a1d42e0")
+			(uuid "b24b37ea-6e1d-48bd-82ef-2b88e54d6037")
 			(effects
 				(font
 					(size 1 1)
@@ -10950,7 +10951,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "92241314-5f4a-466a-90b0-1c0f7e7cb1a0")
+			(uuid "de37597e-1b9a-4e5a-91cd-0945402e2e96")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10963,7 +10964,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "0be16edc-bb74-47a5-94b1-18ef6ffb2309")
+			(uuid "7f355afb-b756-4560-b7b9-a58ce160c056")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11459,7 +11460,7 @@
 			(at -3.15 1.9)
 			(size 1.7 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 6 "GND")
+			(net 71 "/Human Machine Interface Section/BTN_GND")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "f547dabe-123e-4e70-bac4-c4b5c5dd1128")
@@ -11468,7 +11469,7 @@
 			(at 3.15 1.9)
 			(size 1.7 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 6 "GND")
+			(net 71 "/Human Machine Interface Section/BTN_GND")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "dba2788a-def1-459c-9495-45dfb26926ba")
@@ -14718,6 +14719,325 @@
 			)
 		)
 	)
+	(footprint "Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical"
+		(layer "F.Cu")
+		(uuid "8f264c24-95cf-4c9e-864e-c1e1d560f585")
+		(at 92.38 152.5 90)
+		(descr "Through hole straight socket strip, 1x08, 2.54mm pitch, single row (from Kicad 4.0.7), script generated")
+		(tags "Through hole socket strip THT 1x08 2.54mm single row")
+		(property "Reference" "J4"
+			(at 0 -2.77 90)
+			(layer "F.SilkS")
+			(uuid "fd2268cf-a294-43c9-9831-20530a0308a5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "Conn_01x08"
+			(at 0 20.55 90)
+			(layer "F.Fab")
+			(uuid "e90d2408-0cf6-41c3-8669-2322dbab6f3b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 0 0 90)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7f75c4c0-e2ed-4fa0-bfea-693a48f09488")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 0 0 90)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "360cd7c3-1bb5-4217-8ed3-263e8b2de1d4")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Connector*:*_1x??_*")
+		(path "/4d35df8b-f9a9-4663-8ccd-4f07537e2734/82264eae-f5c6-4473-bcab-2e08a6fe2fe9")
+		(sheetname "/Human Machine Interface Section/")
+		(sheetfile "hmi.kicad_sch")
+		(attr through_hole)
+		(fp_line
+			(start 1.33 -1.33)
+			(end 1.33 0)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a2e70ab0-04d0-4424-98e0-49e66c0cf2a2")
+		)
+		(fp_line
+			(start 0 -1.33)
+			(end 1.33 -1.33)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "d6f49584-50b2-4661-813c-87ca7873c8c0")
+		)
+		(fp_line
+			(start 1.33 1.27)
+			(end 1.33 19.11)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "966f2cb6-58f7-4671-ac1d-cc5eeba0c299")
+		)
+		(fp_line
+			(start -1.33 1.27)
+			(end 1.33 1.27)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "8c744f1a-7ef2-404a-9f9b-1d1157207d14")
+		)
+		(fp_line
+			(start -1.33 1.27)
+			(end -1.33 19.11)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "3117d121-a854-4ae1-901e-3babb6a149b4")
+		)
+		(fp_line
+			(start -1.33 19.11)
+			(end 1.33 19.11)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a2249a44-9533-47fb-894b-4a314c61d9a3")
+		)
+		(fp_line
+			(start 1.75 -1.8)
+			(end 1.75 19.55)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "6cf9b2f3-23a4-41b1-a258-3f3d51880dc6")
+		)
+		(fp_line
+			(start -1.8 -1.8)
+			(end 1.75 -1.8)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "7c8a5391-c6df-4073-89db-6e7db623ded6")
+		)
+		(fp_line
+			(start 1.75 19.55)
+			(end -1.8 19.55)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "6c4e5fb7-ef16-4525-a9e3-14d398ae57a9")
+		)
+		(fp_line
+			(start -1.8 19.55)
+			(end -1.8 -1.8)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "61ae96f5-833f-4bc5-8c34-74a1eedea96d")
+		)
+		(fp_line
+			(start 0.635 -1.27)
+			(end 1.27 -0.635)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "e8f68f92-bea6-4b93-9cce-0d8da9d658e1")
+		)
+		(fp_line
+			(start -1.27 -1.27)
+			(end 0.635 -1.27)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "a5d3ca17-1c57-4903-a085-0c0a8d497d30")
+		)
+		(fp_line
+			(start 1.27 -0.635)
+			(end 1.27 19.05)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "38f4992d-73a0-4294-9852-41750a99e16c")
+		)
+		(fp_line
+			(start 1.27 19.05)
+			(end -1.27 19.05)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "c3973b9c-c6c5-433e-9dfa-f11f3e3bb620")
+		)
+		(fp_line
+			(start -1.27 19.05)
+			(end -1.27 -1.27)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "4cc9b639-5020-4a5c-90c1-a86cb8ed5247")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 8.89 0)
+			(layer "F.Fab")
+			(uuid "6f7cb900-a6e1-4d4c-aaac-c5014613be08")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" thru_hole rect
+			(at 0 0 90)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 32 "/Human Machine Interface Section/A_Button_CONN")
+			(pinfunction "Pin_1")
+			(pintype "passive")
+			(uuid "e847efd5-ee5b-4819-93bd-b5839a5c4ccd")
+		)
+		(pad "2" thru_hole circle
+			(at 0 2.54 90)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 34 "/Human Machine Interface Section/B_Button_CONN")
+			(pinfunction "Pin_2")
+			(pintype "passive")
+			(uuid "80e1c1f6-3293-4c6c-8aea-be9bbb6f987a")
+		)
+		(pad "3" thru_hole circle
+			(at 0 5.08 90)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 30 "/Human Machine Interface Section/C_Button_CONN")
+			(pinfunction "Pin_3")
+			(pintype "passive")
+			(uuid "3a19a3f6-3de8-4343-8786-aeb364c52650")
+		)
+		(pad "4" thru_hole circle
+			(at 0 7.62 90)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 35 "/Human Machine Interface Section/Right_Button_CONN")
+			(pinfunction "Pin_4")
+			(pintype "passive")
+			(uuid "6f48050d-8769-42ce-a41b-16fdc3c69c11")
+		)
+		(pad "5" thru_hole circle
+			(at 0 10.16 90)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 31 "/Human Machine Interface Section/Left_Button_CONN")
+			(pinfunction "Pin_5")
+			(pintype "passive")
+			(uuid "f9059764-23f6-4247-a028-0916d44ab5cf")
+		)
+		(pad "6" thru_hole circle
+			(at 0 12.7 90)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 33 "/Human Machine Interface Section/Down_Button_CONN")
+			(pinfunction "Pin_6")
+			(pintype "passive")
+			(uuid "8626891f-9ae8-4a4c-99d0-00d1324b438e")
+		)
+		(pad "7" thru_hole circle
+			(at 0 15.24 90)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 36 "/Human Machine Interface Section/UP_Button_CONN")
+			(pinfunction "Pin_7")
+			(pintype "passive")
+			(uuid "43dda2e0-4359-4fde-bc00-2f3faf1752b5")
+		)
+		(pad "8" thru_hole circle
+			(at 0 17.78 90)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 6 "GND")
+			(pinfunction "Pin_8")
+			(pintype "passive")
+			(uuid "e7dc05c8-3877-4f0a-b1bb-81502dddb433")
+		)
+		(embedded_fonts no)
+		(model "${KICAD9_3DMODEL_DIR}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x08_P2.54mm_Vertical.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "9005854e-8e61-468d-ac35-3272feedda36")
@@ -14974,13 +15294,13 @@
 	(footprint "Button_Switch_SMD:SW_SPST_TL3342"
 		(layer "F.Cu")
 		(uuid "932f7a31-689a-41b0-90d9-df950135f45e")
-		(at 38.35 138.4)
+		(at 61.25 185)
 		(descr "Low-profile SMD Tactile Switch, https://www.e-switch.com/system/asset/product_line/data_sheet/165/TL3342.pdf")
 		(tags "SPST Tactile Switch")
 		(property "Reference" "SW4"
 			(at 0 -3.75 0)
 			(layer "F.SilkS")
-			(uuid "a2e5593e-68b7-445b-9f99-926a43e86a93")
+			(uuid "af779a1b-8623-4da0-a51e-e3e6ce5d1fea")
 			(effects
 				(font
 					(size 1 1)
@@ -14991,7 +15311,7 @@
 		(property "Value" "SW_Push"
 			(at 0 3.75 0)
 			(layer "F.Fab")
-			(uuid "1faa0c7c-c496-4f51-ab3f-d4794bcd93a6")
+			(uuid "51d8041c-4a70-42e9-b435-effe8fbd3b46")
 			(effects
 				(font
 					(size 1 1)
@@ -15004,7 +15324,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "89f22673-e10f-4878-8ec5-3771d0467fdd")
+			(uuid "1a0e57cb-f05c-44cb-bb31-487b0d65f57e")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15017,7 +15337,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "35f805f2-7a2c-4740-82ef-5ec0dcd29b0d")
+			(uuid "1d59ba68-412f-4454-bd5e-de1b48d86427")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15513,7 +15833,7 @@
 			(at -3.15 1.9)
 			(size 1.7 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 6 "GND")
+			(net 71 "/Human Machine Interface Section/BTN_GND")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "3a12657f-65f3-448a-9127-34f614ea3e2e")
@@ -15522,7 +15842,7 @@
 			(at 3.15 1.9)
 			(size 1.7 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 6 "GND")
+			(net 71 "/Human Machine Interface Section/BTN_GND")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "c1a0a794-6001-4855-ad12-6ad2be8f1092")
@@ -18339,6 +18659,325 @@
 			)
 		)
 	)
+	(footprint "Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical"
+		(layer "F.Cu")
+		(uuid "bfda2498-7885-41bc-82a2-d5ff348196b8")
+		(at 56.875 148.025 -90)
+		(descr "Through hole straight socket strip, 1x08, 2.54mm pitch, single row (from Kicad 4.0.7), script generated")
+		(tags "Through hole socket strip THT 1x08 2.54mm single row")
+		(property "Reference" "J5"
+			(at 0 -2.77 90)
+			(layer "F.SilkS")
+			(uuid "2503f964-5cb3-4358-b1ad-0482f4e18dc4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "Conn_01x08"
+			(at 0 20.55 90)
+			(layer "F.Fab")
+			(uuid "e798d126-5e98-46b3-966f-6336b7de33ab")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 0 0 90)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "99db00f3-aba7-43b0-ba7d-84feddea2415")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 0 0 90)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ee57893f-8b5b-4f38-9667-5aba22236a32")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Connector*:*_1x??_*")
+		(path "/4d35df8b-f9a9-4663-8ccd-4f07537e2734/40964817-523d-4935-b013-e6c97c4e2993")
+		(sheetname "/Human Machine Interface Section/")
+		(sheetfile "hmi.kicad_sch")
+		(attr through_hole)
+		(fp_line
+			(start -1.33 19.11)
+			(end 1.33 19.11)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "af7b367d-7e9a-4c0e-8ccd-b706256d8523")
+		)
+		(fp_line
+			(start -1.33 1.27)
+			(end -1.33 19.11)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "80b9a254-cf73-4037-abbe-0a56d129888c")
+		)
+		(fp_line
+			(start -1.33 1.27)
+			(end 1.33 1.27)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "1480d1a4-035a-42aa-9d85-3ccfafb63cbd")
+		)
+		(fp_line
+			(start 1.33 1.27)
+			(end 1.33 19.11)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "eee2ad3f-bc7b-4ff9-a309-eb2071daea19")
+		)
+		(fp_line
+			(start 0 -1.33)
+			(end 1.33 -1.33)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "f5ea26a5-279b-4d93-bc62-7e2f5fb5a95b")
+		)
+		(fp_line
+			(start 1.33 -1.33)
+			(end 1.33 0)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "300df49c-eb48-4934-8c35-4e5ea83a7e9c")
+		)
+		(fp_line
+			(start -1.8 19.55)
+			(end -1.8 -1.8)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "18030d2c-cb8d-41af-abe1-e1016173f8dd")
+		)
+		(fp_line
+			(start 1.75 19.55)
+			(end -1.8 19.55)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "523535b6-e1de-49a7-9151-b18c21f4b4e2")
+		)
+		(fp_line
+			(start -1.8 -1.8)
+			(end 1.75 -1.8)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "bdbbdfe9-b925-4638-a88b-eb5ee31b2fd2")
+		)
+		(fp_line
+			(start 1.75 -1.8)
+			(end 1.75 19.55)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "12317b70-a05b-4a70-9b67-9301142a14c5")
+		)
+		(fp_line
+			(start -1.27 19.05)
+			(end -1.27 -1.27)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "9987e40c-ab6a-4cef-8215-34e1dc340850")
+		)
+		(fp_line
+			(start 1.27 19.05)
+			(end -1.27 19.05)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "f9cc868f-9a27-4b14-885e-5d021870e374")
+		)
+		(fp_line
+			(start 1.27 -0.635)
+			(end 1.27 19.05)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "813e75d9-5145-4f15-af04-1d240d415f01")
+		)
+		(fp_line
+			(start -1.27 -1.27)
+			(end 0.635 -1.27)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "7a61d7fb-7ec4-4ec9-8875-5974bc78b8ec")
+		)
+		(fp_line
+			(start 0.635 -1.27)
+			(end 1.27 -0.635)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "dd368532-e71e-4bd9-a3f1-73c50bff771d")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 8.89 0)
+			(layer "F.Fab")
+			(uuid "d187bbff-45a3-401c-b060-a945cfc27f0d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" thru_hole rect
+			(at 0 0 270)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 43 "/Human Machine Interface Section/A_Button")
+			(pinfunction "Pin_1")
+			(pintype "passive")
+			(uuid "8b1d8910-8193-41d4-922c-10804ea04591")
+		)
+		(pad "2" thru_hole circle
+			(at 0 2.54 270)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 39 "/Human Machine Interface Section/B_Button")
+			(pinfunction "Pin_2")
+			(pintype "passive")
+			(uuid "63ffbd1e-a8f4-4e8e-b0ad-f00d4a40de6c")
+		)
+		(pad "3" thru_hole circle
+			(at 0 5.08 270)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 41 "/Human Machine Interface Section/C_Button")
+			(pinfunction "Pin_3")
+			(pintype "passive")
+			(uuid "cedbea22-cb72-40cb-979c-40b8653e36fa")
+		)
+		(pad "4" thru_hole circle
+			(at 0 7.62 270)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 38 "/Human Machine Interface Section/Right_Button")
+			(pinfunction "Pin_4")
+			(pintype "passive")
+			(uuid "4dad9237-dbed-4186-b431-cd0a4ae01377")
+		)
+		(pad "5" thru_hole circle
+			(at 0 10.16 270)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 42 "/Human Machine Interface Section/Left_Button")
+			(pinfunction "Pin_5")
+			(pintype "passive")
+			(uuid "038383a1-4bfa-4fa4-b879-9ab34d04653c")
+		)
+		(pad "6" thru_hole circle
+			(at 0 12.7 270)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 40 "/Human Machine Interface Section/Down_Button")
+			(pinfunction "Pin_6")
+			(pintype "passive")
+			(uuid "dbae9f0e-ed9c-4916-9fbf-6ae551c6db98")
+		)
+		(pad "7" thru_hole circle
+			(at 0 15.24 270)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 37 "/Human Machine Interface Section/UP_Button")
+			(pinfunction "Pin_7")
+			(pintype "passive")
+			(uuid "997a12ac-0be1-4d73-8eec-31eb0ea4639d")
+		)
+		(pad "8" thru_hole circle
+			(at 0 17.78 270)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 71 "/Human Machine Interface Section/BTN_GND")
+			(pinfunction "Pin_8")
+			(pintype "passive")
+			(uuid "36023c24-e08a-4cdf-9820-93edc60f285b")
+		)
+		(embedded_fonts no)
+		(model "${KICAD9_3DMODEL_DIR}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x08_P2.54mm_Vertical.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "c43182f1-8a82-4bf2-92b2-bcfa2231f844")
@@ -18541,13 +19180,13 @@
 	(footprint "Button_Switch_SMD:SW_SPST_TL3342"
 		(layer "F.Cu")
 		(uuid "cb086a8c-d2b1-4651-a8ef-12c6ffa5f263")
-		(at 38.35 145.45)
+		(at 44.25 172.25)
 		(descr "Low-profile SMD Tactile Switch, https://www.e-switch.com/system/asset/product_line/data_sheet/165/TL3342.pdf")
 		(tags "SPST Tactile Switch")
 		(property "Reference" "SW5"
 			(at 0 -3.75 0)
 			(layer "F.SilkS")
-			(uuid "b3c36782-b42c-45bd-9556-348e2e8de268")
+			(uuid "91ed9675-38c5-4fe6-888e-9fa049372bb1")
 			(effects
 				(font
 					(size 1 1)
@@ -18558,7 +19197,7 @@
 		(property "Value" "SW_Push"
 			(at 0 3.75 0)
 			(layer "F.Fab")
-			(uuid "e982531c-98c0-4d3b-9315-4744f945db17")
+			(uuid "cb03e618-2f13-4ad1-b0b7-78129c4cb1aa")
 			(effects
 				(font
 					(size 1 1)
@@ -18571,7 +19210,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "bd4e1677-e4ad-4029-bfee-31853d8e9a96")
+			(uuid "4d41c872-6341-46ae-83ff-90cdedfff082")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18584,7 +19223,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "024926da-dbad-48ca-9d22-8166b657e20f")
+			(uuid "5b7177e6-e478-47c9-b3ee-8a87ef7aec31")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19080,7 +19719,7 @@
 			(at -3.15 1.9)
 			(size 1.7 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 6 "GND")
+			(net 71 "/Human Machine Interface Section/BTN_GND")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "8385dc08-b4c0-481a-bacd-b78314e26035")
@@ -19089,7 +19728,7 @@
 			(at 3.15 1.9)
 			(size 1.7 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 6 "GND")
+			(net 71 "/Human Machine Interface Section/BTN_GND")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "f78bcc55-96f0-4e45-a127-3dcb6a559256")
@@ -20177,13 +20816,13 @@
 	(footprint "Button_Switch_SMD:SW_SPST_TL3342"
 		(layer "F.Cu")
 		(uuid "d3f7a667-19c3-4d88-b1a1-9cf9467f3a47")
-		(at 38.35 152.5)
+		(at 18.738449 172.215322)
 		(descr "Low-profile SMD Tactile Switch, https://www.e-switch.com/system/asset/product_line/data_sheet/165/TL3342.pdf")
 		(tags "SPST Tactile Switch")
 		(property "Reference" "SW6"
 			(at 0 -3.75 0)
 			(layer "F.SilkS")
-			(uuid "fbb48efc-5477-4234-bea8-77813d1f8b6f")
+			(uuid "f9919889-35ae-46ae-96a3-2208a8af7172")
 			(effects
 				(font
 					(size 1 1)
@@ -20194,7 +20833,7 @@
 		(property "Value" "SW_Push"
 			(at 0 3.75 0)
 			(layer "F.Fab")
-			(uuid "c3bb77f8-5e8e-40b1-89b0-87f02c9a5506")
+			(uuid "7b68f366-3ba7-4194-9984-56fb0c83d1e4")
 			(effects
 				(font
 					(size 1 1)
@@ -20207,7 +20846,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "60c4f70c-e138-4baa-aa87-8db8a7e9c5f2")
+			(uuid "43a49c2f-431d-47b3-b87d-55a5b08dcb43")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20220,7 +20859,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "c0773335-50a0-4964-9b98-f378317c9d65")
+			(uuid "0309ff11-27ab-4e10-978c-003417842527")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20716,7 +21355,7 @@
 			(at -3.15 1.9)
 			(size 1.7 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 6 "GND")
+			(net 71 "/Human Machine Interface Section/BTN_GND")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "935235c1-a67e-4ae4-af34-db1c14c6ea32")
@@ -20725,7 +21364,7 @@
 			(at 3.15 1.9)
 			(size 1.7 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 6 "GND")
+			(net 71 "/Human Machine Interface Section/BTN_GND")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "de33e061-fec1-433b-96fc-26f388056fd7")
@@ -22301,621 +22940,16 @@
 			)
 		)
 	)
-	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical"
-		(layer "F.Cu")
-		(uuid "f62f9fa9-4c64-40eb-95f5-f8c7a78a81a3")
-		(at 88.8 187 90)
-		(descr "Through hole straight pin header, 1x07, 2.54mm pitch, single row")
-		(tags "Through hole pin header THT 1x07 2.54mm single row")
-		(property "Reference" "J4"
-			(at 0 -2.38 90)
-			(layer "F.SilkS")
-			(uuid "6026db17-052a-4d0d-b89a-88599abdeb1d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
+	(gr_rect
+		(start 12.5 145.25)
+		(end 79.5 190.75)
+		(stroke
+			(width 0.1)
+			(type default)
 		)
-		(property "Value" "Conn_01x07"
-			(at 0 17.62 90)
-			(layer "F.Fab")
-			(uuid "885ce925-f39b-4b3e-be6f-5048b1e8bbcb")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 0 0 90)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "4062b79c-94ea-4987-9811-69874ea3c489")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 0 0 90)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "31b65c0a-c44a-4eda-93cf-5fa1627b9e81")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property ki_fp_filters "Connector*:*_1x??_*")
-		(path "/4d35df8b-f9a9-4663-8ccd-4f07537e2734/c4fbdb7c-5885-48ac-ba17-a4ac71a8a048")
-		(sheetname "/Human Machine Interface Section/")
-		(sheetfile "hmi.kicad_sch")
-		(attr through_hole)
-		(fp_line
-			(start -1.38 -1.38)
-			(end 0 -1.38)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "9cbb5bc6-24ff-4320-9a32-3d6ae7a88f2a")
-		)
-		(fp_line
-			(start -1.38 0)
-			(end -1.38 -1.38)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "73ac983e-44d4-41b8-8451-5dc5ea8bc4bc")
-		)
-		(fp_line
-			(start 1.38 1.27)
-			(end 1.38 16.62)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "1f9d4ee8-5a22-4224-bc0b-6620dbb6bfdd")
-		)
-		(fp_line
-			(start -1.38 1.27)
-			(end 1.38 1.27)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "ad586bf8-24a4-44c8-936d-2002b0ac8d45")
-		)
-		(fp_line
-			(start -1.38 1.27)
-			(end -1.38 16.62)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "d26e75bc-eb92-4121-869a-efb6c42f0696")
-		)
-		(fp_line
-			(start -1.38 16.62)
-			(end 1.38 16.62)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "31bfeed8-3eb2-4a16-8071-6a3abf8d4ecc")
-		)
-		(fp_line
-			(start 1.77 -1.78)
-			(end -1.77 -1.78)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "bbf896b4-c818-4afb-a85d-e7a59fc8a962")
-		)
-		(fp_line
-			(start -1.77 -1.78)
-			(end -1.77 17.02)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "d3b62eb2-2eac-4d89-8aab-393ad31de037")
-		)
-		(fp_line
-			(start 1.77 17.02)
-			(end 1.77 -1.78)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "3295649c-d8f8-4192-b047-febc2407e726")
-		)
-		(fp_line
-			(start -1.77 17.02)
-			(end 1.77 17.02)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "bda7278f-bcd6-4da4-85f9-2cdb01dc9991")
-		)
-		(fp_line
-			(start 1.27 -1.27)
-			(end 1.27 16.51)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "a303fa4d-a7d8-4b5e-9710-212915f9c608")
-		)
-		(fp_line
-			(start -0.635 -1.27)
-			(end 1.27 -1.27)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "083aec41-d122-4263-b992-73562842ea76")
-		)
-		(fp_line
-			(start -1.27 -0.635)
-			(end -0.635 -1.27)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "4f936f71-292f-491d-9899-1d3c9cbfccab")
-		)
-		(fp_line
-			(start 1.27 16.51)
-			(end -1.27 16.51)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "01ec6441-a9b9-47fa-a4c5-d3b37f03476c")
-		)
-		(fp_line
-			(start -1.27 16.51)
-			(end -1.27 -0.635)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "ed302a85-b7f3-48dc-a4fb-30914da141e5")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 7.62 0)
-			(layer "F.Fab")
-			(uuid "f5346e26-1218-43d4-ac56-9519f45affe8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(pad "1" thru_hole rect
-			(at 0 0 90)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 32 "/Human Machine Interface Section/A_Button_CONN")
-			(pinfunction "Pin_1")
-			(pintype "passive")
-			(uuid "566f0363-d510-4d22-a076-3b8d64606dba")
-		)
-		(pad "2" thru_hole circle
-			(at 0 2.54 90)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 34 "/Human Machine Interface Section/B_Button_CONN")
-			(pinfunction "Pin_2")
-			(pintype "passive")
-			(uuid "5cb9f059-6ff2-458a-8390-59f6c3a902fc")
-		)
-		(pad "3" thru_hole circle
-			(at 0 5.08 90)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 30 "/Human Machine Interface Section/C_Button_CONN")
-			(pinfunction "Pin_3")
-			(pintype "passive")
-			(uuid "79a5e4bb-08bf-4a63-815c-f88d5ebf8824")
-		)
-		(pad "4" thru_hole circle
-			(at 0 7.62 90)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 35 "/Human Machine Interface Section/Right_Button_CONN")
-			(pinfunction "Pin_4")
-			(pintype "passive")
-			(uuid "6ecb81dd-e8c9-4d92-b7fb-7bae1ba11357")
-		)
-		(pad "5" thru_hole circle
-			(at 0 10.16 90)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 31 "/Human Machine Interface Section/Left_Button_CONN")
-			(pinfunction "Pin_5")
-			(pintype "passive")
-			(uuid "ae9da134-3b68-403e-bc9b-ab1415dc5649")
-		)
-		(pad "6" thru_hole circle
-			(at 0 12.7 90)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 33 "/Human Machine Interface Section/Down_Button_CONN")
-			(pinfunction "Pin_6")
-			(pintype "passive")
-			(uuid "950fcefd-bd2d-4403-91d1-04dcad04e9b6")
-		)
-		(pad "7" thru_hole circle
-			(at 0 15.24 90)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 36 "/Human Machine Interface Section/UP_Button_CONN")
-			(pinfunction "Pin_7")
-			(pintype "passive")
-			(uuid "344eb7ce-cf27-43c6-94e3-e8b0c5ddb6f7")
-		)
-		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x07_P2.54mm_Vertical.step"
-			(offset
-				(xyz 0 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-	)
-	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical"
-		(layer "F.Cu")
-		(uuid "fbbb2c26-e838-4435-b65d-02abf1632cf6")
-		(at 57.84 113.5 90)
-		(descr "Through hole straight pin header, 1x07, 2.54mm pitch, single row")
-		(tags "Through hole pin header THT 1x07 2.54mm single row")
-		(property "Reference" "J5"
-			(at 0 -2.38 90)
-			(layer "F.SilkS")
-			(uuid "596d310b-f8cd-4170-8095-e0121f59d6b9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Value" "Conn_01x07"
-			(at 0 17.62 90)
-			(layer "F.Fab")
-			(uuid "ea00cf7a-2e1b-4167-b95c-b000590435ca")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 0 0 90)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "91b7d86b-a989-4aed-8a93-a3bfe1324509")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 0 0 90)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b437fc24-90c9-4618-936b-f7121f9b81df")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property ki_fp_filters "Connector*:*_1x??_*")
-		(path "/4d35df8b-f9a9-4663-8ccd-4f07537e2734/8c303120-be4f-4341-83da-f65f4404a299")
-		(sheetname "/Human Machine Interface Section/")
-		(sheetfile "hmi.kicad_sch")
-		(attr through_hole)
-		(fp_line
-			(start -1.38 -1.38)
-			(end 0 -1.38)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "6eacf887-5f4b-43ec-be99-88df4b69ef1b")
-		)
-		(fp_line
-			(start -1.38 0)
-			(end -1.38 -1.38)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "406beced-7bc0-477a-be1a-e6231697f5d1")
-		)
-		(fp_line
-			(start 1.38 1.27)
-			(end 1.38 16.62)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "41e2de80-2c18-4afc-8c51-a553af175c38")
-		)
-		(fp_line
-			(start -1.38 1.27)
-			(end 1.38 1.27)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "ef5a0e90-0855-487b-8aa5-a4183c0cc60a")
-		)
-		(fp_line
-			(start -1.38 1.27)
-			(end -1.38 16.62)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "f6967c67-538f-4b7e-9c9c-91cf9d63fc69")
-		)
-		(fp_line
-			(start -1.38 16.62)
-			(end 1.38 16.62)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "6611f6ad-6000-4422-867a-3b6e19dae98c")
-		)
-		(fp_line
-			(start 1.77 -1.78)
-			(end -1.77 -1.78)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "ffc8fd0d-9572-4d8d-818d-97f868c52284")
-		)
-		(fp_line
-			(start -1.77 -1.78)
-			(end -1.77 17.02)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "23e5039b-5503-432d-9e79-105ea526a022")
-		)
-		(fp_line
-			(start 1.77 17.02)
-			(end 1.77 -1.78)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "4516abf6-c2ff-401d-bed8-2df81b355f5b")
-		)
-		(fp_line
-			(start -1.77 17.02)
-			(end 1.77 17.02)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "4c5a81a0-5df4-4f58-8347-2d98b5d4bee0")
-		)
-		(fp_line
-			(start 1.27 -1.27)
-			(end 1.27 16.51)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "ff586554-c9a1-44ab-9fe7-dc2752967b78")
-		)
-		(fp_line
-			(start -0.635 -1.27)
-			(end 1.27 -1.27)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "cca58fcb-b9bc-4716-9727-808d92f295d0")
-		)
-		(fp_line
-			(start -1.27 -0.635)
-			(end -0.635 -1.27)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "e8ae38ec-9ad6-4a89-b7ea-2715335254c2")
-		)
-		(fp_line
-			(start 1.27 16.51)
-			(end -1.27 16.51)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "b130fa1a-b2af-4ccc-84b7-e4a45baac854")
-		)
-		(fp_line
-			(start -1.27 16.51)
-			(end -1.27 -0.635)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "64465810-bf41-45d2-a799-88defd32c9fc")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 7.62 0)
-			(layer "F.Fab")
-			(uuid "a7f5d300-3443-44e8-b7b7-645275bd0730")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(pad "1" thru_hole rect
-			(at 0 0 90)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 43 "/Human Machine Interface Section/A_Button")
-			(pinfunction "Pin_1")
-			(pintype "passive")
-			(uuid "31e899ec-992b-47da-a380-8c7f4b14c00b")
-		)
-		(pad "2" thru_hole circle
-			(at 0 2.54 90)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 39 "/Human Machine Interface Section/B_Button")
-			(pinfunction "Pin_2")
-			(pintype "passive")
-			(uuid "b425c3a9-2a0a-44e2-b78b-26ee01e5c356")
-		)
-		(pad "3" thru_hole circle
-			(at 0 5.08 90)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 41 "/Human Machine Interface Section/C_Button")
-			(pinfunction "Pin_3")
-			(pintype "passive")
-			(uuid "84271ac5-f937-40b1-8031-9ed9e450f2ea")
-		)
-		(pad "4" thru_hole circle
-			(at 0 7.62 90)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 38 "/Human Machine Interface Section/Right_Button")
-			(pinfunction "Pin_4")
-			(pintype "passive")
-			(uuid "8e734755-9911-4f1a-a89c-c3a2a7ff7106")
-		)
-		(pad "5" thru_hole circle
-			(at 0 10.16 90)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 42 "/Human Machine Interface Section/Left_Button")
-			(pinfunction "Pin_5")
-			(pintype "passive")
-			(uuid "c9a9171a-2c54-4007-9fdc-fa0d7f90a8d5")
-		)
-		(pad "6" thru_hole circle
-			(at 0 12.7 90)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 40 "/Human Machine Interface Section/Down_Button")
-			(pinfunction "Pin_6")
-			(pintype "passive")
-			(uuid "bcea5bb1-40fd-45b0-8d5d-fb5db6eef92b")
-		)
-		(pad "7" thru_hole circle
-			(at 0 15.24 90)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 37 "/Human Machine Interface Section/UP_Button")
-			(pinfunction "Pin_7")
-			(pintype "passive")
-			(uuid "df98b8e6-bc12-4b53-8cc4-cfd14f808c47")
-		)
-		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x07_P2.54mm_Vertical.step"
-			(offset
-				(xyz 0 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
+		(fill no)
+		(layer "Edge.Cuts")
+		(uuid "11cf7139-137b-4300-882d-1c8763fccab4")
 	)
 	(embedded_fonts no)
 )
