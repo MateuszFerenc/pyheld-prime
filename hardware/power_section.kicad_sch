@@ -4331,12 +4331,6 @@
 		(uuid "1c784609-f9fc-4b56-b8ad-5cba3d76645d")
 	)
 	(junction
-		(at 102.87 181.61)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2226fede-b352-43c6-b513-ebde9b76b04c")
-	)
-	(junction
 		(at 189.23 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4365,12 +4359,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "340717e0-9d0e-46f5-8138-9502be93a741")
-	)
-	(junction
-		(at 102.87 171.45)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3dd0bd02-6d56-49bf-8b53-3f020e2c1a87")
 	)
 	(junction
 		(at 39.37 127)
@@ -4527,16 +4515,6 @@
 			(type default)
 		)
 		(uuid "0025e604-aaf9-4311-a055-b034df2a1708")
-	)
-	(wire
-		(pts
-			(xy 102.87 180.34) (xy 102.87 181.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0165c35b-2bd3-4662-877b-fd327a8ab765")
 	)
 	(wire
 		(pts
@@ -5150,16 +5128,6 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 171.45) (xy 102.87 171.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "50645f7d-faf9-4247-a413-6f7bc6a5cc6e")
-	)
-	(wire
-		(pts
 			(xy 156.21 48.26) (xy 156.21 40.64)
 		)
 		(stroke
@@ -5390,7 +5358,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 180.34) (xy 114.3 181.61)
+			(xy 104.14 180.34) (xy 104.14 181.61)
 		)
 		(stroke
 			(width 0)
@@ -5670,7 +5638,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 181.61) (xy 102.87 181.61)
+			(xy 91.44 181.61) (xy 104.14 181.61)
 		)
 		(stroke
 			(width 0)
@@ -5760,7 +5728,7 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 171.45) (xy 91.44 171.45)
+			(xy 91.44 171.45) (xy 104.14 171.45)
 		)
 		(stroke
 			(width 0)
@@ -5970,16 +5938,6 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 171.45) (xy 102.87 172.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d08b036a-4190-4c3c-8d65-5c71addf323d")
-	)
-	(wire
-		(pts
 			(xy 199.39 67.31) (xy 204.47 67.31)
 		)
 		(stroke
@@ -6160,16 +6118,6 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 181.61) (xy 91.44 181.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e4616dc0-4e89-4da0-964a-7bb1edde82f4")
-	)
-	(wire
-		(pts
 			(xy 147.32 135.89) (xy 156.21 135.89)
 		)
 		(stroke
@@ -6180,7 +6128,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 172.72) (xy 114.3 171.45)
+			(xy 104.14 172.72) (xy 104.14 171.45)
 		)
 		(stroke
 			(width 0)
@@ -6418,7 +6366,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "086d554e-8b1f-48ea-8757-37354b651481")
-		(property "Reference" "C6"
+		(property "Reference" "C5"
 			(at 123.1265 174.3075 0)
 			(effects
 				(font
@@ -6469,7 +6417,7 @@
 		(instances
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/b1f9fade-b7ed-42bb-82ec-b3a822ff35a4"
-					(reference "C6")
+					(reference "C5")
 					(unit 1)
 				)
 			)
@@ -7127,7 +7075,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "253102e2-ceb7-4521-aa92-891602eb187f")
-		(property "Reference" "C11"
+		(property "Reference" "C10"
 			(at 173.736 71.882 0)
 			(effects
 				(font
@@ -7180,7 +7128,7 @@
 		(instances
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/b1f9fade-b7ed-42bb-82ec-b3a822ff35a4"
-					(reference "C11")
+					(reference "C10")
 					(unit 1)
 				)
 			)
@@ -8799,7 +8747,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "589ceb1e-959a-4005-963f-ced36bed25b9")
-		(property "Reference" "C7"
+		(property "Reference" "C6"
 			(at 137.16 175.26 0)
 			(effects
 				(font
@@ -8852,7 +8800,7 @@
 		(instances
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/b1f9fade-b7ed-42bb-82ec-b3a822ff35a4"
-					(reference "C7")
+					(reference "C6")
 					(unit 1)
 				)
 			)
@@ -9400,7 +9348,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "7d6709e2-92e0-4e2e-9f84-106c51b5ca62")
-		(property "Reference" "C9"
+		(property "Reference" "C8"
 			(at 160.02 175.26 0)
 			(effects
 				(font
@@ -9453,7 +9401,7 @@
 		(instances
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/b1f9fade-b7ed-42bb-82ec-b3a822ff35a4"
-					(reference "C9")
+					(reference "C8")
 					(unit 1)
 				)
 			)
@@ -9597,7 +9545,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "81a23b09-7890-4db8-9285-34090f9d91fc")
-		(property "Reference" "C10"
+		(property "Reference" "C9"
 			(at 167.386 71.882 0)
 			(effects
 				(font
@@ -9650,7 +9598,7 @@
 		(instances
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/b1f9fade-b7ed-42bb-82ec-b3a822ff35a4"
-					(reference "C10")
+					(reference "C9")
 					(unit 1)
 				)
 			)
@@ -9851,73 +9799,6 @@
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/b1f9fade-b7ed-42bb-82ec-b3a822ff35a4"
 					(reference "#PWR025")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized")
-		(at 102.87 176.53 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "8e9db2f3-996b-4155-90b4-453c9bd18a6a")
-		(property "Reference" "C4"
-			(at 96.4565 174.3075 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1u"
-			(at 96.4565 176.8475 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x3"
-			(at 101.9048 180.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 102.87 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 102.87 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "0496d964-9acf-48a2-8997-2748c525bd6f")
-		)
-		(pin "2"
-			(uuid "886dcdb7-d19e-47ae-babb-8430a92e8d8c")
-		)
-		(instances
-			(project "esp8266_pygame"
-				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/b1f9fade-b7ed-42bb-82ec-b3a822ff35a4"
-					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -10254,7 +10135,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "935e4583-aa44-44a6-9a29-690fbeedce07")
-		(property "Reference" "C12"
+		(property "Reference" "C11"
 			(at 252.73 134.62 0)
 			(effects
 				(font
@@ -10307,7 +10188,7 @@
 		(instances
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/b1f9fade-b7ed-42bb-82ec-b3a822ff35a4"
-					(reference "C12")
+					(reference "C11")
 					(unit 1)
 				)
 			)
@@ -10721,7 +10602,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "aa75ce02-9c68-409a-bc34-2607500486dd")
-		(property "Reference" "C8"
+		(property "Reference" "C7"
 			(at 148.59 175.26 0)
 			(effects
 				(font
@@ -10774,7 +10655,7 @@
 		(instances
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/b1f9fade-b7ed-42bb-82ec-b3a822ff35a4"
-					(reference "C8")
+					(reference "C7")
 					(unit 1)
 				)
 			)
@@ -12208,7 +12089,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 114.3 176.53 0)
+		(at 104.14 176.53 0)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -12216,8 +12097,8 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f43228ad-fb76-4388-804b-293d01a6cf16")
-		(property "Reference" "C5"
-			(at 110.49 175.26 0)
+		(property "Reference" "C4"
+			(at 100.33 175.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12226,7 +12107,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 110.49 177.8 0)
+			(at 100.33 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12235,7 +12116,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 115.2652 172.72 0)
+			(at 105.1052 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12244,7 +12125,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 114.3 176.53 0)
+			(at 104.14 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12253,7 +12134,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 114.3 176.53 0)
+			(at 104.14 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12269,7 +12150,7 @@
 		(instances
 			(project "esp8266_pygame"
 				(path "/fc3c54fb-6d1c-4231-9293-8fcb9c0b9706/b1f9fade-b7ed-42bb-82ec-b3a822ff35a4"
-					(reference "C5")
+					(reference "C4")
 					(unit 1)
 				)
 			)
