@@ -962,23 +962,23 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 130.81) (xy 146.05 125.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "07cecbf4-238a-4d3d-8d4f-8daf213e7b04")
-	)
-	(wire
-		(pts
-			(xy 119.38 128.27) (xy 125.73 128.27)
+			(xy 119.38 130.81) (xy 125.73 130.81)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "0a15d224-c7f0-47d3-8e35-29360c1d3278")
+	)
+	(wire
+		(pts
+			(xy 119.38 123.19) (xy 172.72 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0ffa483d-6f64-467b-b1d1-6b9d30e44bc2")
 	)
 	(wire
 		(pts
@@ -1022,16 +1022,6 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 125.73) (xy 172.72 125.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "16986641-faa8-42f9-bc7a-5169f54f6574")
-	)
-	(wire
-		(pts
 			(xy 219.71 48.26) (xy 224.79 48.26)
 		)
 		(stroke
@@ -1062,7 +1052,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 125.73) (xy 125.73 125.73)
+			(xy 119.38 128.27) (xy 125.73 128.27)
 		)
 		(stroke
 			(width 0)
@@ -1102,7 +1092,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 130.81) (xy 146.05 130.81)
+			(xy 119.38 125.73) (xy 172.72 125.73)
 		)
 		(stroke
 			(width 0)
@@ -1511,7 +1501,7 @@
 		(uuid "3b5ab4bd-bb97-4858-90a1-7dbcf15c887c")
 	)
 	(label "SDA"
-		(at 125.73 125.73 0)
+		(at 125.73 128.27 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1681,7 +1671,7 @@
 		(uuid "d6a14afa-e5c1-403b-9db2-9aef23164539")
 	)
 	(label "SCL"
-		(at 125.73 128.27 0)
+		(at 125.73 130.81 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2701,7 +2691,7 @@
 			)
 		)
 		(pin "POWER_EN" output
-			(at 119.38 130.81 0)
+			(at 119.38 125.73 0)
 			(uuid "9ed716b5-746b-4e44-87ad-072f6c368094")
 			(effects
 				(font
@@ -2721,7 +2711,7 @@
 			)
 		)
 		(pin "SCL" input
-			(at 119.38 128.27 0)
+			(at 119.38 130.81 0)
 			(uuid "f950401c-4204-4b1e-97f6-a4d1f210c446")
 			(effects
 				(font
@@ -2731,8 +2721,18 @@
 			)
 		)
 		(pin "SDA" bidirectional
-			(at 119.38 125.73 0)
+			(at 119.38 128.27 0)
 			(uuid "0cdd13b9-d1b6-485d-918d-0ed863aa55a7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "POWER_BUTTON" output
+			(at 119.38 123.19 0)
+			(uuid "1db2df68-985b-4603-93dd-1a7462874f6f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2795,6 +2795,16 @@
 		(pin "Ubatt" output
 			(at 172.72 128.27 180)
 			(uuid "bcba0b4c-7ecf-4012-a51d-584a9885cb97")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "POWER_BUTTON" input
+			(at 172.72 123.19 180)
+			(uuid "5cad2c21-205f-450f-bb40-3eb5101a7d51")
 			(effects
 				(font
 					(size 1.27 1.27)
