@@ -4415,12 +4415,6 @@
 		(uuid "320f1631-834f-45c5-b328-431dbaceb9f0")
 	)
 	(junction
-		(at 39.37 127)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "41aefce8-2728-4355-a26f-8713e219b0cd")
-	)
-	(junction
 		(at 91.44 181.61)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5526,16 +5520,6 @@
 	)
 	(wire
 		(pts
-			(xy 39.37 125.73) (xy 39.37 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7b7c2ba3-25d8-463c-8dc7-17ac5392c728")
-	)
-	(wire
-		(pts
 			(xy 177.8 135.89) (xy 185.42 135.89)
 		)
 		(stroke
@@ -6066,16 +6050,6 @@
 	)
 	(wire
 		(pts
-			(xy 39.37 127) (xy 52.07 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ccdf38fd-3735-4f6d-abc0-30e6885deac9")
-	)
-	(wire
-		(pts
 			(xy 218.44 135.89) (xy 218.44 146.05)
 		)
 		(stroke
@@ -6396,7 +6370,7 @@
 	)
 	(wire
 		(pts
-			(xy 39.37 127) (xy 39.37 128.27)
+			(xy 39.37 125.73) (xy 39.37 128.27)
 		)
 		(stroke
 			(width 0)
@@ -6444,16 +6418,6 @@
 		)
 		(uuid "fa9dbad8-bbf7-4886-91db-fcb8ef37cdc1")
 	)
-	(label "Ubatt"
-		(at 90.17 124.46 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "0520a0bd-797f-4e61-bc13-784297e8ba36")
-	)
 	(hierarchical_label "POWER_EN"
 		(shape input)
 		(at 204.47 95.25 270)
@@ -6478,12 +6442,12 @@
 	)
 	(hierarchical_label "Ubatt"
 		(shape output)
-		(at 52.07 127 0)
+		(at 90.17 124.46 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "ccbb5ee1-dbeb-40b1-8e04-3a1d4e1ba024")
 	)
